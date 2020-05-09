@@ -64,6 +64,17 @@ fun main(args: Array<String>) {
     //convert primitive to class
     val convertedIntArray: Array<Int> = myIntArray.toTypedArray()
 
+    /*
+        arrayOf(1,2,3,4) returns Integer[]
+        intArrayOf(1,2,3,4) returns int[]
+        IntArray(9) returns int[9]
+
+        from primitive to wrapper
+        toTypeArray()
+
+        from wrapper to primitive
+        toIntArray()
+     */
 
 }
 
