@@ -1,0 +1,5 @@
+package kiz.learn.challenges
+
+class Weapon(val name: String, var damageInflicted: Int) {
+
+}

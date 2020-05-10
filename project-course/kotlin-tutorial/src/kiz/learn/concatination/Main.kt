@@ -43,8 +43,6 @@ fun main() {
         Why var or val?
         val - value
         var - variable
-
-
      */
 
 }
