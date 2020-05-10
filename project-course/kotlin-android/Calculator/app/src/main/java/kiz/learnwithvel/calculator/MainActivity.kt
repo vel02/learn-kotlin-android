@@ -71,9 +71,12 @@ class MainActivity : AppCompatActivity() {
         val mOpListener = View.OnClickListener { v ->
             val operation = (v as Button).text.toString()
 
-            val value = mNewNumber.text.toString()
-            if (value.isNotEmpty()) {
+            //dot crash fixed
+            try {
+                val value = mNewNumber.text.toString().toDouble()
                 performOperation(value, operation)
+            } catch (e: NumberFormatException) {
+                mNewNumber.setText("")
             }
 
             mPendingOperation = operation
@@ -87,11 +90,11 @@ class MainActivity : AppCompatActivity() {
         btnPlus.setOnClickListener(mOpListener)
     }
 
-    private fun performOperation(value: String, operation: String) {
+    private fun performOperation(value: Double, operation: String) {
         if (mOperand1 == null)
-            mOperand1 = value.toDouble()
+            mOperand1 = value
         else {
-            mOperand2 = value.toDouble()
+            mOperand2 = value
             if (mPendingOperation == "=")
                 mPendingOperation = operation
 
