@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
     //variables to hold the operands and type of calculation
     private var mOperand1: Double? = null
-    private var mOperand2: Double = 0.0
     private var mPendingOperation = "="
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,21 +90,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun performOperation(value: Double, operation: String) {
+
         if (mOperand1 == null)
             mOperand1 = value
         else {
-            mOperand2 = value
             if (mPendingOperation == "=")
                 mPendingOperation = operation
 
             when (mPendingOperation) {
-                "=" -> mOperand1 = mOperand2
-                "/" -> if (mOperand2 == 0.0)
-                    mOperand1 = Double.NaN// handle attempt to divide by zero
-                else mOperand1 = mOperand1!! / mOperand2
-                "*" -> mOperand1 = mOperand1!! * mOperand2
-                "-" -> mOperand1 = mOperand1!! - mOperand2
-                "+" -> mOperand1 = mOperand1!! + mOperand2
+                "=" -> mOperand1 = value
+                "/" -> mOperand1 = if (value == 0.0)
+                    Double.NaN// handle attempt to divide by zero
+                else mOperand1!! / value
+                "*" -> mOperand1 = mOperand1!! * value
+                "-" -> mOperand1 = mOperand1!! - value
+                "+" -> mOperand1 = mOperand1!! + value
             }
         }
 
