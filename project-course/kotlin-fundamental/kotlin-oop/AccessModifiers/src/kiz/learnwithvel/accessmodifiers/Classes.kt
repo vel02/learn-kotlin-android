@@ -3,16 +3,26 @@ package kiz.learnwithvel.accessmodifiers
 fun main(args: Array<String>) {
     val emp = Employee("John")
     println(emp.firstName)
+
+
+    val emp2 = Employee("Joe")
+    println(emp.firstName)
+    println(emp.fullTime)
+
+    val emp3 = Employee("Jane", false)
+    println(emp3.firstName)
+    println(emp3.fullTime)
 }
 
 /**
- * All classes in Kotlin are public and final by default
- * Compare implementation to javacode to see the difference
- * of writing a class.
- * Using primary constructor.
- *
- * Simplified Implementation
+ * Long way implementation of secondary constructor
  */
 class Employee(val firstName: String) {
+
+    var fullTime: Boolean = true
+
+    constructor(firstName: String, fullTime: Boolean) : this(firstName) {
+        this.fullTime = fullTime
+    }
 
 }
