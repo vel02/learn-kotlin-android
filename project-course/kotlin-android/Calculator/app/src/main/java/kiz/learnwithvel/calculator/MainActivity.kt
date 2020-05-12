@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             //dot crash fixed
             try {
                 val value = edt_newNumber.text.toString().toDouble()
-                performOperation(value, operation)
+                performOperation(value)
             } catch (e: NumberFormatException) {
                 edt_newNumber.setText("")
             }
@@ -75,14 +75,11 @@ class MainActivity : AppCompatActivity() {
         btn_plus.setOnClickListener(mOpListener)
     }
 
-    private fun performOperation(value: Double, operation: String) {
+    private fun performOperation(value: Double) {
 
         if (mOperand1 == null)
             mOperand1 = value
         else {
-            if (mPendingOperation == "=") {
-                mPendingOperation = operation
-            }
 
             when (mPendingOperation) {
                 "=" -> mOperand1 = value
