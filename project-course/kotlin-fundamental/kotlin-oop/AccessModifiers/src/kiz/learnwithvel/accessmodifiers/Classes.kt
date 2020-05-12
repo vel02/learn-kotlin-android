@@ -6,23 +6,32 @@ fun main(args: Array<String>) {
 
 
     val emp2 = Employee("Joe")
-    println(emp.firstName)
-    println(emp.fullTime)
+    println(emp2.firstName)
+    println(emp2.fullTime)
 
     val emp3 = Employee("Jane", false)
     println(emp3.firstName)
     println(emp3.fullTime)
+
+    println(Demo().dummy)
 }
 
 /**
- * Long way implementation of secondary constructor
+ * Short way implementation of secondary constructor with default value
  */
-class Employee(val firstName: String) {
+class Employee(val firstName: String, var fullTime: Boolean = true) {
 
-    var fullTime: Boolean = true
+}
 
-    constructor(firstName: String, fullTime: Boolean) : this(firstName) {
-        this.fullTime = fullTime
+
+/**
+ * Long way implementation of secondary constructor without primary but with default value
+ */
+class Demo {
+
+    val dummy: String
+
+    constructor() {
+        this.dummy = "hello"
     }
-
 }
