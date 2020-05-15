@@ -3,6 +3,8 @@ package kiz.learnwithvel.accessmodifiers
 fun main(args: Array<String>) {
     val emp = Employee("John")
     println(emp.firstName)
+    emp.fullTime = false
+    println(emp.fullTime)
 
 
     val emp2 = Employee("Joe")
@@ -19,7 +21,17 @@ fun main(args: Array<String>) {
 /**
  * Short way implementation of secondary constructor with default value
  */
-class Employee(val firstName: String, var fullTime: Boolean = true) {
+class Employee(val firstName: String, fullTime: Boolean = true) {
+
+    var fullTime = fullTime
+        get() {
+            println("Running the custom get")
+            return field
+        }
+        set(value) {
+            println("Running the custom set")
+            field = value
+        }
 
 }
 
