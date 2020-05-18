@@ -6,6 +6,24 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import java.net.URL
 
+class FeedEntry {
+    var name: String = ""
+    var artist: String = ""
+    var releaseDate: String = ""
+    var summary: String = ""
+    var imageURL: String = ""
+
+    override fun toString(): String {
+        return """
+            name = $name
+            artist = $artist
+            releaseDate = $releaseDate
+            summary = $summary
+            image = $imageURL
+        """.trimIndent()
+    }
+}
+
 class MainActivity : AppCompatActivity() {
 
     private val TAG = "MainActivity"
