@@ -6,6 +6,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import java.net.URL
 
+private const val TAG = "MainActivity"
+
 class FeedEntry {
     var name: String = ""
     var artist: String = ""
@@ -26,7 +28,6 @@ class FeedEntry {
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +40,10 @@ class MainActivity : AppCompatActivity() {
 
     //static
     companion object {
+        private const val TAG = "DownloadData"
+
         //AsyncTask class for asynchronous process
         private class DownloadData : AsyncTask<String, Void, String>() {
-            private val TAG = "DownloadData"
 
             override fun doInBackground(vararg url: String?): String {
                 Log.d(TAG, "doInBackground: starts with ${url[0]}")
