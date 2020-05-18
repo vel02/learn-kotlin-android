@@ -13,18 +13,27 @@ fun main(args: Array<String>) {
     val car1 = Car("blue", "Toyota", 2015)
     val car2 = Car("red", "Ford", 2016)
     val car3 = Car("grey", "Ford", 2017)
-    printColors(car1, car2, car3, str = "Color: ")
+    printColors(car1, car2, car3)
 
     //arrayOf uses varargs
     val numbers = arrayOf(1, 2, 3)
 
+    //spread operator to unpacked the array for vararg
     val manyCars = arrayOf(car1, car2, car3)
+    printColors(*manyCars)
 
+    //spread operator for unpacking arrays
+    val moreCars = arrayOf(car2, car3)
+    val car4 = car2.copy()
+    val lotsOfCars = arrayOf(*manyCars, *moreCars, car4)
+    for (c in lotsOfCars) {
+        println(c)
+    }
 }
 
-fun printColors(vararg cars: Car, str: String) {
+fun printColors(vararg cars: Car) {
     for (car in cars) {
-        println("$str ${car.color}")
+        println(car.color)
     }
 }
 
