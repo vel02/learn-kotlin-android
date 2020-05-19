@@ -29,6 +29,19 @@ fun main(args: Array<String>) {
     for (c in lotsOfCars) {
         println(c)
     }
+
+    //extension function example
+    val str = "this is all in lowercase"
+    println(str.upperFirstAndLast())//str object calling custom function
+
+}
+
+//extension function(extend or added your custom method to the String class)
+// String is the type, str is the object
+fun String.upperFirstAndLast(): String {
+    val upperFirst = substring(0, 1).toUpperCase() + substring(1)
+    return upperFirst.substring(0, upperFirst.length - 1) +
+            upperFirst.substring(upperFirst.length - 1, upperFirst.length).toUpperCase()
 }
 
 fun printColors(vararg cars: Car) {
