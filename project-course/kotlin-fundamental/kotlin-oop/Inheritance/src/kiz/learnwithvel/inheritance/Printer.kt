@@ -1,10 +1,8 @@
 package kiz.learnwithvel.inheritance
 
-//override also means open
-
 fun main(args: Array<String>) {
 
-    val laserPrinter = LaserPrinter("Brother 1234")
+    val laserPrinter = LaserPrinter("Brother 1234", 15)
     laserPrinter.printModel()
 
 }
@@ -17,18 +15,16 @@ abstract class Printer(val modelName: String) {
 
 }
 
-open class LaserPrinter(modelName: String) : Printer(modelName) {
+//constructor signature
+open class LaserPrinter(modelName: String, ppm: Int) : Printer(modelName) {
 
-    //final, and cannot be overridden by any subclasses of LaserPrinter
     final override fun printModel() = println("The model name of this laser printer is $modelName")
 
     override fun bestSellingPrice() = 129.99
 
 }
 
-class SpecialLaserPrinter(modelName: String) : LaserPrinter(modelName) {
+class SpecialLaserPrinter(modelName: String, ppm: Int) : LaserPrinter(modelName, ppm) {
 
-    //explicitly using final keyword on methods can avoid overriding
-    //override fun printModel() = println("This is my way of doing it!!!")
 
 }
