@@ -1,6 +1,6 @@
 package kiz.learnwithvel.inheritance
 
-//everything is public and final in kotlin (open key can allow you to override final methods
+//override also means open
 
 fun main(args: Array<String>) {
 
@@ -17,10 +17,18 @@ abstract class Printer(val modelName: String) {
 
 }
 
-class LaserPrinter(modelName: String) : Printer(modelName) {
+open class LaserPrinter(modelName: String) : Printer(modelName) {
 
-    override fun printModel() = println("The model name of this laser printer is $modelName")
+    //final, and cannot be overridden by any subclasses of LaserPrinter
+    final override fun printModel() = println("The model name of this laser printer is $modelName")
 
     override fun bestSellingPrice() = 129.99
+
+}
+
+class SpecialLaserPrinter(modelName: String) : LaserPrinter(modelName) {
+
+    //explicitly using final keyword on methods can avoid overriding
+    //override fun printModel() = println("This is my way of doing it!!!")
 
 }
