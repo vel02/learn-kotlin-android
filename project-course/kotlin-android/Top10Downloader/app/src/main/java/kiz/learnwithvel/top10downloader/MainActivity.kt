@@ -1,10 +1,14 @@
 package kiz.learnwithvel.top10downloader
 
+import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import java.net.URL
+import kotlin.properties.Delegates
 
 private const val TAG = "MainActivity"
 
@@ -20,7 +24,6 @@ class FeedEntry {
             name = $name
             artist = $artist
             releaseDate = $releaseDate
-            summary = $summary
             image = $imageURL
         """.trimIndent()
     }
@@ -33,17 +36,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate() start")
-        val downloadData = DownloadData()
+        val list = findViewById<ListView>(R.id.list_item_container)
+        val downloadData = DownloadData(this, list)
         downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml")
         Log.d(TAG, "onCreate() done")
     }
 
-    //static
     companion object {
         private const val TAG = "DownloadData"
 
-        //AsyncTask class for asynchronous process
-        private class DownloadData : AsyncTask<String, Void, String>() {
+        private class DownloadData(context: Context, list: ListView) :
+            AsyncTask<String, Void, String>() {
+
+            //backing fields
+            var context: Context by Delegates.notNull()
+            var list: ListView by Delegates.notNull()
+
+            //initialization
+            init {
+                this.context = context
+                this.list = list
+            }
 
             override fun doInBackground(vararg url: String?): String {
                 Log.d(TAG, "doInBackground: starts with ${url[0]}")
@@ -56,14 +69,16 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPostExecute(result: String) {
                 super.onPostExecute(result)
-//                Log.d(TAG, "onPostExecute: parameter is $result")
                 val parse = ParseApplications()
                 parse.parse(result);
+
+                val arrayAdapter =
+                    ArrayAdapter(this.context, R.layout.list_item, parse.applications)
+                this.list.adapter = arrayAdapter
             }
 
             private fun downloadXML(urlPath: String?): String {
-                //One-line code for reading url data but... not recommended for huge files may use long method.
-                return URL(urlPath).readText()//This method is not recommended on huge files.
+                return URL(urlPath).readText()
             }
 
         }
