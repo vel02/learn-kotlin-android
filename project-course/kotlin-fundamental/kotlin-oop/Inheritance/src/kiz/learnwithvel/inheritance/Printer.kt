@@ -15,7 +15,6 @@ abstract class Printer(val modelName: String) {
 
 }
 
-//constructor signature
 open class LaserPrinter(modelName: String, ppm: Int) : Printer(modelName) {
 
     final override fun printModel() = println("The model name of this laser printer is $modelName")
@@ -26,5 +25,22 @@ open class LaserPrinter(modelName: String, ppm: Int) : Printer(modelName) {
 
 class SpecialLaserPrinter(modelName: String, ppm: Int) : LaserPrinter(modelName, ppm) {
 
+}
+
+//calling secondary constructor.
+//Note: you cannot have primary constructor, it can't call secondary because of delegation
+open class Something {
+
+    val someProperty: String
+
+    constructor(someParameter: String) {
+        someProperty = someParameter
+    }
+
+}
+
+class SomethingElse : Something {
+
+    constructor(someOtherParameter: String) : super(someOtherParameter)
 
 }
