@@ -52,3 +52,8 @@ class SomethingElse : Something {
     }
 
 }
+
+//data classes are close type, cannot be extended (open, abstract keyword will not work)
+//open data class DataClass(val number: Int) {
+
+//}
