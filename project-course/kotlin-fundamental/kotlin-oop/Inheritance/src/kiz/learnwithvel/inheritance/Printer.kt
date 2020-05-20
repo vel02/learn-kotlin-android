@@ -5,6 +5,9 @@ fun main(args: Array<String>) {
     val laserPrinter = LaserPrinter("Brother 1234", 15)
     laserPrinter.printModel()
 
+    //secondary constructor's
+    SomethingElse("whatever")
+
 }
 
 abstract class Printer(val modelName: String) {
@@ -35,12 +38,17 @@ open class Something {
 
     constructor(someParameter: String) {
         someProperty = someParameter
+        println("I'm in the parent's constructor")
     }
 
 }
 
+//constructor bodies
 class SomethingElse : Something {
 
-    constructor(someOtherParameter: String) : super(someOtherParameter)
+
+    constructor(someOtherParameter: String) : super(someOtherParameter) {
+        println("I'm in the child's constructor")
+    }
 
 }
