@@ -4,9 +4,9 @@ import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import java.net.URL
 import kotlin.properties.Delegates
 
@@ -31,15 +31,20 @@ class FeedEntry {
 
 class MainActivity : AppCompatActivity() {
 
+    private val downloadData by lazy { DownloadData(this, list_item_container) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         Log.d(TAG, "onCreate() start")
-        val list = findViewById<ListView>(R.id.list_item_container)
-        val downloadData = DownloadData(this, list)
         downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml")
         Log.d(TAG, "onCreate() done")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        downloadData.cancel(true)
     }
 
     companion object {
@@ -68,12 +73,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPostExecute(result: String) {
-                super.onPostExecute(result)
+
                 val parse = ParseApplications()
                 parse.parse(result);
 
                 val arrayAdapter =
-                    ArrayAdapter(this.context, R.layout.list_item, parse.applications)
+                    FeedAdapter(context, R.layout.list_record, parse.applications)
                 this.list.adapter = arrayAdapter
             }
 
