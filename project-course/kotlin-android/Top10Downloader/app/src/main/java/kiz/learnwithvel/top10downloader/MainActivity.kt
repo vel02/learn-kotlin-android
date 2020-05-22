@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,20 +33,45 @@ class FeedEntry {
 
 class MainActivity : AppCompatActivity() {
 
-    private val downloadData by lazy { DownloadData(this, list_item_container) }
+    private var downloadData: DownloadData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d(TAG, "onCreate() start")
-        downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml")
+        downloadUrl("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml")
         Log.d(TAG, "onCreate() done")
+    }
+
+    private fun downloadUrl(feedUrl: String) {
+        Log.d(TAG, "downloadUrl() start")
+        downloadData = DownloadData(this, list_item_container)
+        downloadData?.execute(feedUrl)
+        Log.d(TAG, "downloadUrl() done")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.feeds_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val feedUrl = when (item.itemId) {
+            R.id.mnu_free ->
+                "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml"
+            R.id.mnu_paid -> "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=10/xml"
+            R.id.mnu_songs -> "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=10/xml"
+            else -> return super.onOptionsItemSelected(item)
+        }
+
+        downloadUrl(feedUrl)
+        return true
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        downloadData.cancel(true)
+        downloadData?.cancel(true)
     }
 
     companion object {
@@ -64,7 +91,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun doInBackground(vararg url: String?): String {
-                Log.d(TAG, "doInBackground: starts with ${url[0]}")
                 val rssFeed = downloadXML(url[0])
                 if (rssFeed.isEmpty()) {
                     Log.e(TAG, "doInBackground: Error downloading")
