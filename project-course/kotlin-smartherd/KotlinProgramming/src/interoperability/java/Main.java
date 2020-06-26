@@ -9,8 +9,8 @@ public class Main {
         int sum = MyCustomKotlinFileName.add(3, 4);
         System.out.println("Printing sum from Java file: " + sum);
 
-        int result = MyCustomKotlinFileName.findVolume(4, 7);
-        System.out.println(result);
+//        int result = MyCustomKotlinFileName.findVolume(4, 7);
+//        System.out.println(result);
 
     }
 

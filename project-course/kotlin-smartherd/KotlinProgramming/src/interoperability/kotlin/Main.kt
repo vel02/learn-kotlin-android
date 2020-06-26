@@ -2,20 +2,21 @@
 
 package interoperability.kotlin
 
-import interoperability.java.Main
 
 fun main(args: Array<String>) {
 
-    var area = Main.getArea(10, 5)
-    println("Printing area from Kotlin file: $area")
-
-    var result = findVolume(2, 3)
-    println(result)
+    findVolume(length = 2, height = 30, breadth = 3)
+    findVolume( breadth = 3, length = 2)
 
 }
 
-@JvmOverloads
-fun findVolume(length: Int, breadth: Int, height: Int = 10) = length * breadth * height
+fun findVolume(length: Int, breadth: Int, height: Int = 10) {
+
+    println("Length is $length")
+    println("Breadth is $breadth")
+    println("Height is $height")
+
+}
 
 fun add(a: Int, b: Int): Int {
     return a + b
