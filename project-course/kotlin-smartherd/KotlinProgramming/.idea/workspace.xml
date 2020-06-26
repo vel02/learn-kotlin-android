@@ -19,14 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: named parameter function">
-      <change afterPath="$PROJECT_DIR$/src/function/extension/Main.kt" afterDir="false" />
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: some files">
+      <change afterPath="$PROJECT_DIR$/src/function/infix/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/interoperability/java/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/interoperability/kotlin/MyCustomKotlinFileName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interoperability/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/interoperability/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interoperability/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/interoperability/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +56,7 @@
       <recent name="C:\Users\Rodolfo\Documents\GitHub\learn-kotlin-android\project-course\kotlin-smartherd\KotlinProgramming\src\interoperability\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt (1)">
+  <component name="RunManager" selected="Kotlin.MainKt (2)">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="function.interoperability.java.Main" />
       <module name="KotlinProgramming" />
@@ -87,6 +83,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt (2)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="KotlinProgramming" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="function.infix.MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt (3)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinProgramming" />
       <option name="VM_PARAMETERS" />
@@ -95,19 +104,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" value="function.MainKt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <module name="KotlinProgramming" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="function.expression.MainKt" />
       <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -141,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt (2)" />
         <item itemvalue="Kotlin.MainKt (1)" />
         <item itemvalue="Kotlin.MyCustomKotlinFileName" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Kotlin.MainKt (1)" />
-        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +170,21 @@
       <option name="project" value="LOCAL" />
       <updated>1593165207288</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="kotlin smartherd: extension function">
+      <created>1593166184982</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593166184982</updated>
+    </task>
+    <task id="LOCAL-00004" summary="kotlin smartherd: some files">
+      <created>1593166202862</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593166202862</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,37 +202,39 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kotlin smartherd: JvmOverloads annotation to support interoperability for default functions" />
     <MESSAGE value="kotlin smartherd: named parameter function" />
-    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: named parameter function" />
+    <MESSAGE value="kotlin smartherd: extension function" />
+    <MESSAGE value="kotlin smartherd: some files" />
+    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: some files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1593069879176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593069879176" />
-    <state width="379" height="287" key="GridCell.Tab.0.bottom" timestamp="1593165995773">
+    <state width="413" height="600" key="GridCell.Tab.0.bottom" timestamp="1593166535462">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="287" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593165995773" />
-    <state width="379" height="287" key="GridCell.Tab.0.center" timestamp="1593165995773">
+    <state width="413" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593166535462" />
+    <state width="413" height="600" key="GridCell.Tab.0.center" timestamp="1593166535462">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="287" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593165995773" />
-    <state width="379" height="287" key="GridCell.Tab.0.left" timestamp="1593165995773">
+    <state width="413" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593166535462" />
+    <state width="413" height="600" key="GridCell.Tab.0.left" timestamp="1593166535462">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="287" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593165995773" />
-    <state width="379" height="287" key="GridCell.Tab.0.right" timestamp="1593165995773">
+    <state width="413" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593166535462" />
+    <state width="413" height="600" key="GridCell.Tab.0.right" timestamp="1593166535462">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="287" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593165995773" />
+    <state width="413" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593166535462" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1593070098582">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593070098582" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593165214324">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593166213804">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593165214324" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593166213804" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593074589439">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
