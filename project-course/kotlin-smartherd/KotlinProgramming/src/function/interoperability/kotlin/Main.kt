@@ -1,6 +1,6 @@
 @file:JvmName("MyCustomKotlinFileName")
 
-package interoperability.kotlin
+package function.interoperability.kotlin
 
 
 fun main(args: Array<String>) {

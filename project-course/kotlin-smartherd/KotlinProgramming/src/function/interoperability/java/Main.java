@@ -1,6 +1,6 @@
-package interoperability.java;
+package function.interoperability.java;
 
-import interoperability.kotlin.MyCustomKotlinFileName;
+import function.interoperability.kotlin.MyCustomKotlinFileName;
 
 public class Main {
 
