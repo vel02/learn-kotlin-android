@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="" />
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/interoperability/kotlin/MyCustomKotlinFileName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinProgramming/interoperability/kotlin/MyCustomKotlinFileName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interoperability/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interoperability/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interoperability/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/interoperability/kotlin/Main.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +57,7 @@
       <recent name="C:\Users\Rodolfo\Documents\GitHub\learn-kotlin-android\project-course\kotlin-smartherd\KotlinProgramming\src\interoperability\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MyCustomKotlinFileName">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="interoperability.java.Main" />
       <module name="KotlinProgramming" />
@@ -120,8 +125,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MyCustomKotlinFileName" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Kotlin.MyCustomKotlinFileName" />
         <item itemvalue="Kotlin.MainKt (1)" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.MainKt (3)" />
@@ -158,22 +163,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593069879176" />
-    <state width="356" height="287" key="GridCell.Tab.0.bottom" timestamp="1593075731260">
+    <state width="379" height="287" key="GridCell.Tab.0.bottom" timestamp="1593164602620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="356" height="287" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593075731260" />
-    <state width="356" height="287" key="GridCell.Tab.0.center" timestamp="1593075731260">
+    <state width="379" height="287" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593164602620" />
+    <state width="379" height="287" key="GridCell.Tab.0.center" timestamp="1593164602620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="356" height="287" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593075731260" />
-    <state width="356" height="287" key="GridCell.Tab.0.left" timestamp="1593075731260">
+    <state width="379" height="287" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593164602620" />
+    <state width="379" height="287" key="GridCell.Tab.0.left" timestamp="1593164602620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="356" height="287" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593075731260" />
-    <state width="356" height="287" key="GridCell.Tab.0.right" timestamp="1593075731260">
+    <state width="379" height="287" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593164602620" />
+    <state width="379" height="287" key="GridCell.Tab.0.right" timestamp="1593164602620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="356" height="287" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593075731260" />
+    <state width="379" height="287" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593164602620" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1593070098582">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
