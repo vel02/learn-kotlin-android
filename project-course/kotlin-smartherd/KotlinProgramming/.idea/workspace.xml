@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: secondary constructor part 1">
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: secondary constructor part 2">
+      <change afterPath="$PROJECT_DIR$/src/oop/inheritance/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oop/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oop/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/oop/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oop/classes/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,10 +54,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rodolfo\Documents\GitHub\learn-kotlin-android\project-course\kotlin-smartherd\KotlinProgramming\src\oop\classes" />
       <recent name="C:\Users\Rodolfo\Documents\GitHub\learn-kotlin-android\project-course\kotlin-smartherd\KotlinProgramming\src\interoperability\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Kotlin.MainKt (3)">
     <configuration name="MainKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinProgramming" />
       <option name="VM_PARAMETERS" />
@@ -83,6 +85,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt (3)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="KotlinProgramming" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="oop.inheritance.MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt (4)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinProgramming" />
       <option name="VM_PARAMETERS" />
@@ -103,20 +118,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="oop.MainKt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyCustomKotlinFileName" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <module name="KotlinProgramming" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="function.interoperability.kotlin.MyCustomKotlinFileName" />
+      <option name="MAIN_CLASS_NAME" value="oop.classes.MainKt" />
       <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt (3)" />
         <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.MainKt (4)" />
         <item itemvalue="Kotlin.MainKt (2)" />
         <item itemvalue="Kotlin.MainKt (1)" />
-        <item itemvalue="Kotlin.MyCustomKotlinFileName" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593245528088</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="kotlin smartherd: secondary constructor part 2">
+      <created>1593245933287</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1593245933287</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,29 +247,30 @@
     <MESSAGE value="kotlin smartherd: class and its properties and init block." />
     <MESSAGE value="kotlin smartherd: different with both properties and parameter constructor." />
     <MESSAGE value="kotlin smartherd: secondary constructor part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: secondary constructor part 1" />
+    <MESSAGE value="kotlin smartherd: secondary constructor part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: secondary constructor part 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1593069879176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593069879176" />
-    <state width="449" height="286" key="GridCell.Tab.0.bottom" timestamp="1593245794313">
+    <state width="449" height="600" key="GridCell.Tab.0.bottom" timestamp="1593245959203">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="286" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593245794313" />
-    <state width="449" height="286" key="GridCell.Tab.0.center" timestamp="1593245794313">
+    <state width="449" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
+    <state width="449" height="600" key="GridCell.Tab.0.center" timestamp="1593245959203">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="286" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593245794313" />
-    <state width="449" height="286" key="GridCell.Tab.0.left" timestamp="1593245794313">
+    <state width="449" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
+    <state width="449" height="600" key="GridCell.Tab.0.left" timestamp="1593245959203">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="286" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593245794313" />
-    <state width="449" height="286" key="GridCell.Tab.0.right" timestamp="1593245794313">
+    <state width="449" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
+    <state width="449" height="600" key="GridCell.Tab.0.right" timestamp="1593245959203">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="286" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593245794313" />
+    <state width="449" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1593244590630">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -281,10 +291,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593070098582" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593245293328">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593245947088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593245293328" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593245947088" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593074589439">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

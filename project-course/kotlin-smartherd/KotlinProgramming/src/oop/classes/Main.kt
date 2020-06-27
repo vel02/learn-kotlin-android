@@ -1,4 +1,4 @@
-package oop
+package oop.classes
 
 fun main(args: Array<String>) {
 
