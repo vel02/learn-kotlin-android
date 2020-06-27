@@ -2,7 +2,7 @@ package oop
 
 fun main(args: Array<String>) {
 
-    var student = Student("Yel", 20)
+    var student = Student("Yel")
 
     println("Student has got a name as ${student.name}")
 
@@ -10,9 +10,14 @@ fun main(args: Array<String>) {
 }
 
 //properties, and parameter
-class Student(var name: String, age : Int) {
-
+class Student(var name: String) {
     init {
-        println("Student age is $age")
+        //this can be used as a primary constructor's body
+        println("Student age is $name")
+    }
+
+    //secondary constructor
+    constructor(name: String, id: Int) : this(name) {
+        //body
     }
 }
