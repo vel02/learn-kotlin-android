@@ -2,7 +2,7 @@ package oop
 
 fun main(args: Array<String>) {
 
-    var student = Student("Yel")
+    var student = Student("Yel", 20)
 
     println("Student has got a name as ${student.name}")
 
@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
 }
 
 //properties, and parameter
-class Student(var name: String, age : String) {
+class Student(var name: String, age : Int) {
 
     init {
         println("Student age is $age")
