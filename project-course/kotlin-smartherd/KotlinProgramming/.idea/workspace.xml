@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: tailrec function">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" afterDir="false" />
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: class and its properties and init block.">
       <change beforePath="$PROJECT_DIR$/src/oop/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oop/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593244345458</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="kotlin smartherd: class and its properties and init block.">
+      <created>1593245104001</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1593245104001</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,7 +213,8 @@
     <MESSAGE value="kotlin smartherd: some files" />
     <MESSAGE value="kotlin smartherd: infix function" />
     <MESSAGE value="kotlin smartherd: tailrec function" />
-    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: tailrec function" />
+    <MESSAGE value="kotlin smartherd: class and its properties and init block." />
+    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: class and its properties and init block." />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1593069879176">

@@ -9,9 +9,10 @@ fun main(args: Array<String>) {
 
 }
 
-class Student(var name: String) {
+//properties, and parameter
+class Student(var name: String, age : String) {
 
     init {
-        println("Student has got a name as $name")
+        println("Student age is $age")
     }
 }
