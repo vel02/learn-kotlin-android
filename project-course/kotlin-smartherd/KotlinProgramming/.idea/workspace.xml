@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: secondary constructor part 2">
-      <change afterPath="$PROJECT_DIR$/src/oop/inheritance/Main.kt" afterDir="false" />
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: inheritance">
+      <change afterPath="$PROJECT_DIR$/src/abstract/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/oop/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/oop/classes/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593245933287</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="kotlin smartherd: inheritance">
+      <created>1593247078543</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593247078543</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,53 +254,54 @@
     <MESSAGE value="kotlin smartherd: different with both properties and parameter constructor." />
     <MESSAGE value="kotlin smartherd: secondary constructor part 1" />
     <MESSAGE value="kotlin smartherd: secondary constructor part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: secondary constructor part 2" />
+    <MESSAGE value="kotlin smartherd: inheritance" />
+    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: inheritance" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1593069879176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593069879176" />
-    <state width="449" height="600" key="GridCell.Tab.0.bottom" timestamp="1593245959203">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="600" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
-    <state width="449" height="600" key="GridCell.Tab.0.center" timestamp="1593245959203">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="600" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
-    <state width="449" height="600" key="GridCell.Tab.0.left" timestamp="1593245959203">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="600" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
-    <state width="449" height="600" key="GridCell.Tab.0.right" timestamp="1593245959203">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="449" height="600" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593245959203" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1593244590630">
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593244590630" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1593244590630">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1593244590630" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1593244590630">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1593244590630" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1593244590630">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1593244590630" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1593247099593" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1593070098582">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593070098582" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593245947088">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593247089147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593245947088" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593247089147" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593074589439">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
