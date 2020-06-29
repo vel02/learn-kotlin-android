@@ -19,8 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: abstract class, methods and properties">
-      <change afterPath="$PROJECT_DIR$/src/dataclasses/Main.kt" afterDir="false" />
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: data classes">
+      <change afterPath="$PROJECT_DIR$/src/singleton/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" afterDir="false" />
     </list>
@@ -62,7 +62,7 @@
       <recent name="C:\Users\Rodolfo\Documents\GitHub\learn-kotlin-android\project-course\kotlin-smartherd\KotlinProgramming\src\interoperability\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt (2)">
+  <component name="RunManager" selected="Kotlin.MainKt (4)">
     <configuration name="MainKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinProgramming" />
       <option name="VM_PARAMETERS" />
@@ -102,6 +102,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt (4)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="KotlinProgramming" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="singleton.MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt (5)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinProgramming" />
       <option name="VM_PARAMETERS" />
@@ -115,26 +128,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <module name="KotlinProgramming" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="oop.classes.MainKt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt (4)" />
         <item itemvalue="Kotlin.MainKt (2)" />
         <item itemvalue="Kotlin.MainKt (1)" />
         <item itemvalue="Kotlin.MainKt (5)" />
         <item itemvalue="Kotlin.MainKt (3)" />
-        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593331662697</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="kotlin smartherd: data classes">
+      <created>1593419145856</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1593419145856</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,7 +275,8 @@
     <MESSAGE value="kotlin smartherd: secondary constructor part 2" />
     <MESSAGE value="kotlin smartherd: inheritance" />
     <MESSAGE value="kotlin smartherd: abstract class, methods and properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: abstract class, methods and properties" />
+    <MESSAGE value="kotlin smartherd: data classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: data classes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1593332789970">
@@ -279,22 +287,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593069879176" />
-    <state width="637" height="178" key="GridCell.Tab.0.bottom" timestamp="1593419011433">
+    <state x="202" y="279" key="Github.Dialog.Accounts.Choose" timestamp="1593419157409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
-    <state width="637" height="178" key="GridCell.Tab.0.center" timestamp="1593419011433">
+    <state x="202" y="279" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1593419157409" />
+    <state width="637" height="178" key="GridCell.Tab.0.bottom" timestamp="1593419682214">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
-    <state width="637" height="178" key="GridCell.Tab.0.left" timestamp="1593419011433">
+    <state width="637" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593419682214" />
+    <state width="637" height="178" key="GridCell.Tab.0.center" timestamp="1593419682214">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
-    <state width="637" height="178" key="GridCell.Tab.0.right" timestamp="1593419011433">
+    <state width="637" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593419682214" />
+    <state width="637" height="178" key="GridCell.Tab.0.left" timestamp="1593419682213">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
+    <state width="637" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593419682213" />
+    <state width="637" height="178" key="GridCell.Tab.0.right" timestamp="1593419682214">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="637" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593419682214" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -315,10 +327,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593070098582" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593331669749">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593419152263">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593331669749" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593419152263" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593074589439">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
