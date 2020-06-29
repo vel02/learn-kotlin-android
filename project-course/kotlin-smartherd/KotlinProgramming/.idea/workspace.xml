@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: data classes">
-      <change afterPath="$PROJECT_DIR$/src/singleton/Main.kt" afterDir="false" />
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: singleton">
+      <change afterPath="$PROJECT_DIR$/src/companion/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593419145856</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="kotlin smartherd: singleton">
+      <created>1593419772381</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1593419772381</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -276,7 +282,8 @@
     <MESSAGE value="kotlin smartherd: inheritance" />
     <MESSAGE value="kotlin smartherd: abstract class, methods and properties" />
     <MESSAGE value="kotlin smartherd: data classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: data classes" />
+    <MESSAGE value="kotlin smartherd: singleton" />
+    <option name="LAST_COMMIT_MESSAGE" value="kotlin smartherd: singleton" />
   </component>
   <component name="WindowStateProjectService">
     <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1593332789970">
@@ -287,26 +294,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593069879176" />
-    <state x="202" y="279" key="Github.Dialog.Accounts.Choose" timestamp="1593419157409">
+    <state x="202" y="279" key="Github.Dialog.Accounts.Choose" timestamp="1593419779835">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="202" y="279" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1593419157409" />
-    <state width="637" height="178" key="GridCell.Tab.0.bottom" timestamp="1593419682214">
+    <state x="202" y="279" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1593419779835" />
+    <state width="637" height="178" key="GridCell.Tab.0.bottom" timestamp="1593419734077">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593419682214" />
-    <state width="637" height="178" key="GridCell.Tab.0.center" timestamp="1593419682214">
+    <state width="637" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593419734077" />
+    <state width="637" height="178" key="GridCell.Tab.0.center" timestamp="1593419734077">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593419682214" />
-    <state width="637" height="178" key="GridCell.Tab.0.left" timestamp="1593419682213">
+    <state width="637" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593419734077" />
+    <state width="637" height="178" key="GridCell.Tab.0.left" timestamp="1593419734077">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593419682213" />
-    <state width="637" height="178" key="GridCell.Tab.0.right" timestamp="1593419682214">
+    <state width="637" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593419734077" />
+    <state width="637" height="178" key="GridCell.Tab.0.right" timestamp="1593419734077">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="637" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593419682214" />
+    <state width="637" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593419734077" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -327,10 +334,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593070098582" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593419152263">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593419775195">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593419152263" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593419775195" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593074589439">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
