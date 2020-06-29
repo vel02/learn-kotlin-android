@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: abstract class, methods and properties">
-      <change afterPath="$PROJECT_DIR$/src/interface/Main.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataclasses/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abstract/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/abstract/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/interface" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -63,7 +62,7 @@
       <recent name="C:\Users\Rodolfo\Documents\GitHub\learn-kotlin-android\project-course\kotlin-smartherd\KotlinProgramming\src\interoperability\kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt (1)">
+  <component name="RunManager" selected="Kotlin.MainKt (2)">
     <configuration name="MainKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinProgramming" />
       <option name="VM_PARAMETERS" />
@@ -77,6 +76,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainKt (2)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="KotlinProgramming" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dataclasses.MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt (3)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="KotlinProgramming" />
       <option name="VM_PARAMETERS" />
@@ -85,19 +97,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" value="oop.inheritance.MainKt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainKt (4)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <module name="KotlinProgramming" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="function.tailrec.MainKt" />
       <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt (2)" />
         <item itemvalue="Kotlin.MainKt (1)" />
         <item itemvalue="Kotlin.MainKt (5)" />
         <item itemvalue="Kotlin.MainKt (3)" />
         <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Kotlin.MainKt (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -280,22 +279,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593069879176" />
-    <state width="379" height="362" key="GridCell.Tab.0.bottom" timestamp="1593332915335">
+    <state width="637" height="178" key="GridCell.Tab.0.bottom" timestamp="1593419011433">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="362" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593332915335" />
-    <state width="379" height="362" key="GridCell.Tab.0.center" timestamp="1593332915335">
+    <state width="637" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
+    <state width="637" height="178" key="GridCell.Tab.0.center" timestamp="1593419011433">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="362" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593332915335" />
-    <state width="379" height="362" key="GridCell.Tab.0.left" timestamp="1593332915335">
+    <state width="637" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
+    <state width="637" height="178" key="GridCell.Tab.0.left" timestamp="1593419011433">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="362" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593332915335" />
-    <state width="379" height="362" key="GridCell.Tab.0.right" timestamp="1593332915335">
+    <state width="637" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
+    <state width="637" height="178" key="GridCell.Tab.0.right" timestamp="1593419011433">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="379" height="362" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593332915335" />
+    <state width="637" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593419011433" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1593247099593">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
