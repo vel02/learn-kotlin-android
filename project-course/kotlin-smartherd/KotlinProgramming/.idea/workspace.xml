@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: abstract class, methods and properties">
-      <change afterPath="$PROJECT_DIR$/src/interface/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/KotlinProgramming/META-INF/KotlinProgramming.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abstract/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/abstract/Main.kt" afterDir="false" />
-    </list>
+    <list default="true" id="9003b1c9-d7f3-4627-9764-672357c0962a" name="Default Changelist" comment="kotlin smartherd: abstract class, methods and properties" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -316,10 +311,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593070098582" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593331669749">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1593590954157">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593331669749" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593590954157" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593074589439">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
