@@ -1,2 +1,0 @@
-package kiz.learnwithvel.problems
-
