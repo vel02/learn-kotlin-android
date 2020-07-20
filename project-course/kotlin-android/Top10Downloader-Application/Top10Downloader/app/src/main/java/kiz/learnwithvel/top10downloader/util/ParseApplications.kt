@@ -12,7 +12,7 @@ class ParseApplications {
         private const val TAG = "ParseApplications"
     }
 
-    private val applications = ArrayList<FeedEntry>()
+    val applications = ArrayList<FeedEntry>()
 
     fun parse(xmlData: String): Boolean {
         Log.d(TAG, "parse called with $xmlData")

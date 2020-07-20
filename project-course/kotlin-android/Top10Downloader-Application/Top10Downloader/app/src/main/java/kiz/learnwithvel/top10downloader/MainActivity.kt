@@ -1,11 +1,16 @@
 package kiz.learnwithvel.top10downloader
 
+import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import kiz.learnwithvel.top10downloader.util.ParseApplications
+import kotlinx.android.synthetic.main.activity_main.*
 import java.net.URL
+import kotlin.properties.Delegates
 
 class FeedEntry {
 
@@ -29,7 +34,17 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "MainActivity"
 
-        private class DownloadData : AsyncTask<String, Void, String>() {
+        private class DownloadData(context: Context, list: ListView) :
+            AsyncTask<String, Void, String>() {
+
+            //backing properties to avoid memory leak
+            private var propContext: Context by Delegates.notNull()
+            private var propListView: ListView by Delegates.notNull()
+
+            init {
+                propContext = context
+                propListView = list
+            }
 
             override fun doInBackground(vararg url: String?): String {
                 Log.d(TAG, "doInBackground: starts with ${url[0]}")
@@ -43,36 +58,16 @@ class MainActivity : AppCompatActivity() {
             override fun onPostExecute(result: String) {
                 val parseApplications = ParseApplications()
                 parseApplications.parse(result)
+
+                val adapter = ArrayAdapter<FeedEntry>(
+                    propContext,
+                    R.layout.layout_list_item,
+                    parseApplications.applications
+                )
+                propListView.adapter = adapter
             }
 
             private fun downloadXML(urlPath: String?): String {
-//                //solution #1
-//                val xmlResult = StringBuilder()
-//
-//                try {
-//                    val url = URL(urlPath)
-//                    val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-//                    val code = connection.responseCode
-//                    Log.d(TAG, "downloadXML: code: $code")
-//
-//                    connection.inputStream
-//                        .buffered()
-//                        .reader()
-//                        .use { xmlResult.append(it.readText()) }
-//
-//                    return xmlResult.toString()
-//
-//                } catch (e: Exception) {
-//                    val message = when (e) {
-//                        is MalformedURLException -> "downloadXML: Invalid URL ${e.message}"
-//                        is IOException -> "downloadXML: IO Exception ${e.message}"
-//                        is SecurityException -> "downloadXML: SecurityException. Need permissions? ${e.message}"
-//                        else -> "downloadXML: Unknown ERROR: ${e.message}"
-//                    }
-//                    Log.e(TAG, "downloadXML: $message")
-//                }
-
-                //solution #2: with limit.
                 return URL(urlPath).readText()
             }
 
@@ -83,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate() called.")
-        val downloadData = DownloadData()
+        val downloadData = DownloadData(this, list_item)
         downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml")
     }
 
