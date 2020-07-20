@@ -4,6 +4,7 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import kiz.learnwithvel.top10downloader.util.ParseApplications
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -26,12 +27,13 @@ class MainActivity : AppCompatActivity() {
                 return rssFeed
             }
 
-            override fun onPostExecute(result: String?) {
-                Log.d(TAG, "onPostExecute: result: $result")
+            override fun onPostExecute(result: String) {
+                val parseApplications = ParseApplications()
+                parseApplications.parse(result)
             }
 
             private fun downloadXML(urlPath: String?): String {
-                val xmlResult = StringBuilder(urlPath)
+                val xmlResult = StringBuilder()
 
                 try {
                     val url = URL(urlPath)

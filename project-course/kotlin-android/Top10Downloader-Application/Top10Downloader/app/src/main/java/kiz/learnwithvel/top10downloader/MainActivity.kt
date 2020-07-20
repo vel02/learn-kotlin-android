@@ -4,7 +4,25 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import kiz.learnwithvel.top10downloader.util.ParseApplications
 import java.net.URL
+
+class FeedEntry {
+
+    var name: String = ""
+    var artist: String = ""
+    var releaseDate: String = ""
+    var summary: String = ""
+    var imageUrl: String = ""
+
+    override fun toString(): String {
+        return "FeedEntry(name='$name'," +
+                " artist='$artist'," +
+                " releaseDate='$releaseDate', " +
+                "imageUrl='$imageUrl')"
+    }
+
+}
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +40,9 @@ class MainActivity : AppCompatActivity() {
                 return rssFeed;
             }
 
-            override fun onPostExecute(result: String?) {
-                Log.d(TAG, "onPostExecute: parameter is $result")
+            override fun onPostExecute(result: String) {
+                val parseApplications = ParseApplications()
+                parseApplications.parse(result)
             }
 
             private fun downloadXML(urlPath: String?): String {
