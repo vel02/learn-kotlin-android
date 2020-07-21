@@ -4,9 +4,9 @@ import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import kiz.learnwithvel.top10downloader.adapter.FeedAdapter
 import kiz.learnwithvel.top10downloader.util.ParseApplications
 import kotlinx.android.synthetic.main.activity_main.*
 import java.net.URL
@@ -59,11 +59,12 @@ class MainActivity : AppCompatActivity() {
                 val parseApplications = ParseApplications()
                 parseApplications.parse(result)
 
-                val adapter = ArrayAdapter<FeedEntry>(
-                    propContext,
-                    R.layout.layout_list_item,
-                    parseApplications.applications
-                )
+                val adapter =
+                    FeedAdapter(
+                        propContext,
+                        R.layout.layout_list_item,
+                        parseApplications.applications
+                    )
                 propListView.adapter = adapter
             }
 
@@ -74,12 +75,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private val downloadData by lazy { DownloadData(this, list_item) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate() called.")
-        val downloadData = DownloadData(this, list_item)
         downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        downloadData.cancel(true)
     }
 
 }
