@@ -1,6 +1,5 @@
 package kiz.learnwithvel.top10downloader.util
 
-import android.util.Log
 import kiz.learnwithvel.top10downloader.FeedEntry
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
@@ -8,14 +7,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ParseApplications {
-    companion object {
-        private const val TAG = "ParseApplications"
-    }
 
     val applications = ArrayList<FeedEntry>()
 
     fun parse(xmlData: String): Boolean {
-        Log.d(TAG, "parse called with $xmlData")
         var status = true
         var inEntry = false
         var textValue = ""
@@ -66,11 +61,6 @@ class ParseApplications {
                 }
 
                 eventType = xpp.next()
-            }
-
-            for (app in applications) {
-                Log.d(TAG, "***************************")
-                Log.d(TAG, "parse: $app")
             }
 
         } catch (e: Exception) {
