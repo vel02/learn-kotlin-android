@@ -1,11 +1,12 @@
 package kiz.learnwithvel.flickrbrowser
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kiz.learnwithvel.flickrbrowser.adapter.FlickrRecyclerAdapter
@@ -13,13 +14,15 @@ import kiz.learnwithvel.flickrbrowser.model.Photo
 import kiz.learnwithvel.flickrbrowser.util.DownloadStatus
 import kiz.learnwithvel.flickrbrowser.util.GetFlickrJsonData
 import kiz.learnwithvel.flickrbrowser.util.GetRawData
+import kiz.learnwithvel.flickrbrowser.util.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 private const val TAG = "MainActivity"
 
-class MainActivity : AppCompatActivity(), GetRawData.OnDownloadComplete,
-    GetFlickrJsonData.OnDataAvailable {
+class MainActivity : BaseActivity(), GetRawData.OnDownloadComplete,
+    GetFlickrJsonData.OnDataAvailable,
+    RecyclerItemClickListener.OnRecyclerClickListener {
 
     override fun onDataAvailable(data: List<Photo>) {
         adapter.loadNewData(data)
@@ -39,15 +42,29 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadComplete,
         }
     }
 
+    override fun onItemClick(view: View, position: Int) {
+        Log.d(TAG, "onItemClick: position $position")
+    }
+
+    override fun onItemLongClick(view: View, position: Int) {
+        Log.d(TAG, "onItemLongClick: position $position")
+        val photo = adapter.getPhoto(position)
+        if (photo != null) {
+            val intent = Intent(this@MainActivity, PhotoDetailsActivity::class.java)
+            intent.putExtra(FLICKR_TRANSFER, photo)
+            startActivity(intent)
+        }
+    }
 
     private val adapter = FlickrRecyclerAdapter(ArrayList())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        activateToolbar(false)
 
         recycler_view.layoutManager = LinearLayoutManager(this@MainActivity)
+        recycler_view.addOnItemTouchListener(RecyclerItemClickListener(this, recycler_view, this))
         recycler_view.adapter = adapter
 
         val url = createUri(
