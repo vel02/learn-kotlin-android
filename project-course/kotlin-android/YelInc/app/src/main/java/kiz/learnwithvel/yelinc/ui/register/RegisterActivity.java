@@ -40,6 +40,7 @@ public class RegisterActivity extends BaseActivity {
 
         activateToolbar(false, "Register");
         register();
+        subscribeObserver();
     }
 
     private void register() {
@@ -48,8 +49,7 @@ public class RegisterActivity extends BaseActivity {
             if (areFieldEmpty(email, password, confirm)) {
                 if (isValid(email)) {
                     if (isMatch(password, confirm)) {
-                        binding.setShowLoading(true);
-                        showMessage(binding.registerParent, "User authentication success");
+                        viewModel.registerNewEmail(this, binding.registerParent, email, confirm);
                     } else {
                         showMessage(binding.registerParent, "Invalid password. It does not match");
                     }
@@ -62,5 +62,12 @@ public class RegisterActivity extends BaseActivity {
         });
     }
 
+    private void subscribeObserver() {
+        viewModel.observeLoading().observe(this, showLoading -> {
+            if (showLoading != null) {
+                binding.setShowLoading(showLoading);
+            }
+        });
+    }
 
 }
