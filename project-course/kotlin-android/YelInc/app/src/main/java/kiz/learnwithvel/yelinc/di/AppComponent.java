@@ -2,6 +2,7 @@ package kiz.learnwithvel.yelinc.di;
 
 import android.app.Application;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.BindsInstance;
@@ -25,6 +26,9 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
 
         @BindsInstance
         Builder application(Application application);
+
+        @BindsInstance
+        Builder registerActivity(@Named("Register Activity") int layout);
 
         AppComponent build();
     }

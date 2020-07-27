@@ -2,12 +2,10 @@ package kiz.learnwithvel.yelinc.ui.register;
 
 import android.os.Bundle;
 
-import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import javax.inject.Inject;
 
-import kiz.learnwithvel.yelinc.R;
 import kiz.learnwithvel.yelinc.databinding.ActivityRegisterBinding;
 import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.viewmodel.ViewModelProviderFactory;
@@ -23,10 +21,10 @@ public class RegisterActivity extends BaseActivity {
 
     @Inject
     ViewModelProviderFactory providerFactory;
-
+    @Inject
     ActivityRegisterBinding binding;
-    RegisterViewModel viewModel;
 
+    private RegisterViewModel viewModel;
     private String email, password, confirm;
 
     private void getFieldValues() {
@@ -39,7 +37,7 @@ public class RegisterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this, providerFactory).get(RegisterViewModel.class);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_register);
+
         activateToolbar(false, "Register");
         register();
     }
