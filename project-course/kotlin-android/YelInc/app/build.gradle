@@ -32,6 +32,8 @@ android {
     }
 
     sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
         main {
             res.srcDirs = [
                     'src/main/res/layout/activity',
@@ -41,6 +43,7 @@ android {
             ]
         }
     }
+
 }
 
 dependencies {
