@@ -27,19 +27,23 @@ class FlickrRecyclerAdapter(private var photoList: List<Photo>) :
     }
 
     override fun getItemCount(): Int {
-        return if (photoList.isNotEmpty()) photoList.size else 0
+        return if (photoList.isNotEmpty()) photoList.size else 1
     }
 
     override fun onBindViewHolder(holder: FlickrViewHolder, position: Int) {
-        val photoItem = photoList[position]
 
-        Picasso.get()
-            .load(photoItem.image)
-            .error(R.drawable.placeholder)
-            .placeholder(R.drawable.placeholder)
-            .into(holder.thumbnail)
-
-        holder.title.text = photoItem.title
+        if (photoList.isEmpty()) {
+            holder.thumbnail.setImageResource(R.drawable.placeholder)
+            holder.title.setText(R.string.empty_photo)
+        } else {
+            val photoItem = photoList[position]
+            Picasso.get()
+                .load(photoItem.image)
+                .error(R.drawable.placeholder)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.thumbnail)
+            holder.title.text = photoItem.title
+        }
     }
 
     fun loadNewData(newPhoto: List<Photo>) {
