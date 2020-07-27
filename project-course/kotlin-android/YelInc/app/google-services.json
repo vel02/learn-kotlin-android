@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1034361069871",
+    "firebase_url": "https://yel-inc.firebaseio.com",
+    "project_id": "yel-inc",
+    "storage_bucket": "yel-inc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034361069871:android:b9c992878731d7aafa41da",
+        "android_client_info": {
+          "package_name": "kiz.learnwithvel.yelinc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034361069871-cp8j31om56ukav33ag46khr4im233sv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz7r0516uan1qwxg32gS5IEgs13kgL_Dg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034361069871-cp8j31om56ukav33ag46khr4im233sv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

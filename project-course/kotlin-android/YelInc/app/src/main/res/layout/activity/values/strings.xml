@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="registration_act_label">Email Registration</string>
+    <string name="register_activity_hint_email">Email</string>
+    <string name="register_activity_hint_password">Password</string>
+    <string name="register_activity_hint_confirm_password">Confirm Password</string>
+    <string name="register_activity_button_register">Register</string>
+</resources>
