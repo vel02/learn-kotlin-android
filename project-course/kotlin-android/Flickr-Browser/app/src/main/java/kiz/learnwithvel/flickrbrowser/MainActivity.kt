@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kiz.learnwithvel.flickrbrowser.adapter.FlickrRecyclerAdapter
@@ -58,6 +59,22 @@ class MainActivity : BaseActivity(), GetRawData.OnDownloadComplete,
 
     private val adapter = FlickrRecyclerAdapter(ArrayList())
 
+    override fun onResume() {
+        super.onResume()
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val query = sharedPref.getString(FLICKR_QUERY, "")!!
+        if (query.isNotEmpty()) {
+            val url = createUri(
+                "Https://www.flickr.com/services/feeds/photos_public.gne",
+                query,
+                "en-us",
+                false
+            )
+            val getRawData = GetRawData(this@MainActivity)
+            getRawData.execute(url)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -66,15 +83,6 @@ class MainActivity : BaseActivity(), GetRawData.OnDownloadComplete,
         recycler_view.layoutManager = LinearLayoutManager(this@MainActivity)
         recycler_view.addOnItemTouchListener(RecyclerItemClickListener(this, recycler_view, this))
         recycler_view.adapter = adapter
-
-        val url = createUri(
-            "Https://www.flickr.com/services/feeds/photos_public.gne",
-            "android,oreo",
-            "en-us",
-            false
-        )
-        val getRawData = GetRawData(this@MainActivity)
-        getRawData.execute(url)
 
         fab.setOnClickListener {
             Snackbar.make(it, "Replace with your own action", Snackbar.LENGTH_SHORT)
