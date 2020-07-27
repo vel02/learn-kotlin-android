@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
+import androidx.preference.PreferenceManager
 
 private const val TAG = "SearchActivity"
 
@@ -27,6 +28,22 @@ class SearchActivity : BaseActivity() {
         searchView?.setSearchableInfo(searchableInfo)
 
         searchView?.isIconified = false
+
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                val sharedPref = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                sharedPref.edit().putString(FLICKR_QUERY, query).apply()
+                searchView?.clearFocus()
+
+                finish()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
         return true
     }
 
