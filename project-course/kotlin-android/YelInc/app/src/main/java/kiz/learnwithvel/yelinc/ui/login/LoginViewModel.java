@@ -9,19 +9,21 @@ import com.google.firebase.auth.FirebaseUser;
 
 import javax.inject.Inject;
 
+import kiz.learnwithvel.yelinc.resource.AuthResource;
+
 public class LoginViewModel extends ViewModel {
 
     private static final String TAG = "LoginViewModel";
 
     private MutableLiveData<Boolean> showLoading = new MutableLiveData<>();
-    private MutableLiveData<Boolean> isAuthenticated = new MutableLiveData<>();
+    private MutableLiveData<AuthResource> authStatus = new MutableLiveData<>();
 
     private FirebaseAuth.AuthStateListener authStateListener;
 
     @Inject
     public LoginViewModel() {
         showLoading.setValue(false);
-        isAuthenticated.setValue(null);
+        authStatus.setValue(null);
     }
 
     public FirebaseAuth.AuthStateListener getAuthStateListener() {
@@ -36,8 +38,8 @@ public class LoginViewModel extends ViewModel {
         return showLoading;
     }
 
-    public LiveData<Boolean> observeIsAuthenticated() {
-        return isAuthenticated;
+    public LiveData<AuthResource> observeAuthStatus() {
+        return authStatus;
     }
 
     public void signInAccount(String email, String password) {
@@ -46,6 +48,7 @@ public class LoginViewModel extends ViewModel {
                 .addOnCompleteListener(task -> {
                     showLoading.setValue(false);
                 }).addOnFailureListener(e -> {
+            authStatus.setValue(AuthResource.unauthenticated("Authentication Failed. Make sure to have a correct email or password"));
             showLoading.setValue(false);
         });
     }
@@ -54,26 +57,17 @@ public class LoginViewModel extends ViewModel {
         authStateListener = firebaseAuth -> {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user != null) {
-
                 if (user.isEmailVerified()) {
-                    positiveProperties();
+                    authStatus.setValue(AuthResource.authenticated("Authentication Success"));
+                    showLoading.setValue(false);
                 } else {
-                    negativeProperties();
+                    authStatus.setValue(AuthResource.verification("Check your Email Inbox for a Verification Link"));
+                    showLoading.setValue(false);
+                    FirebaseAuth.getInstance().signOut();
                 }
-                FirebaseAuth.getInstance().signOut();
             }
         };
-        isAuthenticated.setValue(null);
-    }
-
-    private void positiveProperties() {
-        isAuthenticated.setValue(true);
-        showLoading.setValue(false);
-    }
-
-    private void negativeProperties() {
-        isAuthenticated.setValue(false);
-        showLoading.setValue(false);
+        authStatus.setValue(null);
     }
 
 }

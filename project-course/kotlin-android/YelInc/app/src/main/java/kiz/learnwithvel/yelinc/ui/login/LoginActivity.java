@@ -2,7 +2,6 @@ package kiz.learnwithvel.yelinc.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
@@ -89,24 +88,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         });
 
-        viewModel.observeIsAuthenticated().observe(this, isAuthenticated -> {
-            if (isAuthenticated != null) {
-                if (isAuthenticated) {
-                    showMessage(binding.loginParent, "Account Authenticated");
-                } else {
-                    showMessage(binding.loginParent, "Check your Email Inbox for a Verification Link");
-                }
-            } else {
-                Log.d(TAG, "firebaseAuthListener: failed to login");
+        viewModel.observeAuthStatus().observe(this, authResource -> {
+            if (authResource != null) {
+                showMessage(binding.loginParent, authResource.message);
             }
         });
 
-        /*
-            authenticated, verification, unauthenticated
-         */
-
     }
-
 
     @Override
     public void onClick(View view) {
