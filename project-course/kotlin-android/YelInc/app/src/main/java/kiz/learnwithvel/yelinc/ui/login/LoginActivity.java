@@ -104,10 +104,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 Intent intent = new Intent(this, RegisterActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
+                break;
             }
             case R.id.login_forgot_password: {
                 ForgotPasswordDialog dialog = new ForgotPasswordDialog();
                 dialog.show(getSupportFragmentManager(), getString(R.string.tag_dialog_forgot_password));
+                break;
             }
         }
     }
