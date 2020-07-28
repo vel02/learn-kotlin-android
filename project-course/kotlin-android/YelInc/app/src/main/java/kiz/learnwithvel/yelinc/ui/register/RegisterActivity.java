@@ -42,7 +42,7 @@ public class RegisterActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this, providerFactory).get(RegisterViewModel.class);
 
-        activateToolbar(false, "Register");
+        activateToolbar(true, "Register");
         register();
         subscribeObserver();
     }

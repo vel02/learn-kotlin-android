@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 
 import androidx.databinding.BindingAdapter;
 
-public class RegisterAdapter {
+public class AppAdapter {
 
     @BindingAdapter({"kiz:showLoading"})
     public static void setLoading(ProgressBar view, boolean show) {

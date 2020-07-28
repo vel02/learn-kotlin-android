@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import javax.inject.Inject;
 
@@ -39,6 +40,7 @@ public class RegisterViewModel extends ViewModel {
                     if (task.isSuccessful()) {
                         showMessage(view, "Account is successfully created");
                         positiveProperties();
+                        sendVerificationEmail(view);
                         FirebaseAuth.getInstance().signOut();
                     } else {
                         showMessage(view, "Unable to register. Try use different Email");
@@ -46,6 +48,20 @@ public class RegisterViewModel extends ViewModel {
                     }
                 }).isSuccessful();
 
+    }
+
+    private void sendVerificationEmail(View view) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            user.sendEmailVerification()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            showMessage(view, "Sent verification email");
+                        } else {
+                            showMessage(view, "Could'nt send verification email");
+                        }
+                    });
+        }
     }
 
     private void positiveProperties() {

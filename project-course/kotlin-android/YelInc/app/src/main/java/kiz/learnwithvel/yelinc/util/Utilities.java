@@ -17,6 +17,10 @@ public class Utilities {
             return !isEmpty(email) && !isEmpty(password) && !isEmpty(confirm);
         }
 
+        public static boolean areFieldEmpty(java.lang.String email, java.lang.String password) {
+            return !isEmpty(email) && !isEmpty(password);
+        }
+
         public static boolean isValid(String email) {
             return email.substring(email.indexOf('@') + 1).equals(VALID_DOMAIN);
         }
