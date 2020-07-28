@@ -10,4 +10,7 @@
     <string name="activity_label_register">Register</string>
     <string name="activity_label_forgot_password">Forgot Password</string>
     <string name="activity_label_resend_verification_email">Resend Verification Email</string>
+    <string name="activity_label_reset_password">Reset Password</string>
+    <string name="dialog_label_confirm">CONFIRM</string>
+    <string name="tag_dialog_forgot_password">dialog_forgot_password</string>
 </resources>

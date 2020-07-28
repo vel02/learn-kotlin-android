@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import kiz.learnwithvel.yelinc.R;
 import kiz.learnwithvel.yelinc.databinding.ActivityLoginBinding;
 import kiz.learnwithvel.yelinc.ui.BaseActivity;
+import kiz.learnwithvel.yelinc.ui.login.dialog.ForgotPasswordDialog;
 import kiz.learnwithvel.yelinc.ui.register.RegisterActivity;
 import kiz.learnwithvel.yelinc.viewmodel.ViewModelProviderFactory;
 
@@ -103,6 +104,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 Intent intent = new Intent(this, RegisterActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
+            }
+            case R.id.login_forgot_password: {
+                ForgotPasswordDialog dialog = new ForgotPasswordDialog();
+                dialog.show(getSupportFragmentManager(), getString(R.string.tag_dialog_forgot_password));
             }
         }
     }

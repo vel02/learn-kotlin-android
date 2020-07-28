@@ -19,4 +19,5 @@
 
     <style name="AppTheme.PopupOverlay" parent="Theme.AppCompat.Light" />
 
+    <style name="RoundedCornersDialog" parent="@style/ThemeOverlay.MaterialComponents.Dialog" />
 </resources>
