@@ -17,8 +17,6 @@ import static kiz.learnwithvel.yelinc.util.Utilities.Message.showMessage;
 
 public class RegisterActivity extends BaseActivity {
 
-    private static final String TAG = "RegisterActivity";
-
     @Inject
     ViewModelProviderFactory providerFactory;
     @Inject
@@ -31,6 +29,12 @@ public class RegisterActivity extends BaseActivity {
         email = binding.contentRegister.registerEmail.getText().toString();
         password = binding.contentRegister.registerPassword.getText().toString();
         confirm = binding.contentRegister.registerConfirmPassword.getText().toString();
+    }
+
+    private void resetFieldValues() {
+        binding.contentRegister.registerEmail.setText("");
+        binding.contentRegister.registerPassword.setText("");
+        binding.contentRegister.registerConfirmPassword.setText("");
     }
 
     @Override
@@ -66,6 +70,14 @@ public class RegisterActivity extends BaseActivity {
         viewModel.observeLoading().observe(this, showLoading -> {
             if (showLoading != null) {
                 binding.setShowLoading(showLoading);
+            }
+        });
+
+        viewModel.observeFirebaseTask().observe(this, firebaseTask -> {
+            if (firebaseTask != null) {
+                if (firebaseTask) {
+                    resetFieldValues();
+                }
             }
         });
     }

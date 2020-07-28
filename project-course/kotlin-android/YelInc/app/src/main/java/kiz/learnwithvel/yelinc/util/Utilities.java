@@ -18,11 +18,7 @@ public class Utilities {
         }
 
         public static boolean isValid(String email) {
-            try {
-                return email.substring(email.indexOf('@') + 1).equals(VALID_DOMAIN);
-            } catch (Exception e) {
-                return false;
-            }
+            return email.substring(email.indexOf('@') + 1).equals(VALID_DOMAIN);
         }
 
         public static boolean isMatch(String password, String confirm) {
