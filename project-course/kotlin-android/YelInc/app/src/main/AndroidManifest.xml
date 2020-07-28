@@ -16,13 +16,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".ui.register.RegisterActivity"
+            android:name=".ui.login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
     </application>
 

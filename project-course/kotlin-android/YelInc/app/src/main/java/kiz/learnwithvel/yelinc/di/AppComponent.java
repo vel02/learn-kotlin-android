@@ -30,6 +30,9 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
         @BindsInstance
         Builder registerActivity(@Named("Register Activity") int layout);
 
+        @BindsInstance
+        Builder loginActivity(@Named("Login Activity") int layout);
+
         AppComponent build();
     }
 

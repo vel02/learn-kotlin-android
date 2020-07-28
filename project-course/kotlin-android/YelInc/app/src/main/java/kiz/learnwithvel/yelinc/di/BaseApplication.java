@@ -10,6 +10,7 @@ public class BaseApplication extends DaggerApplication {
         return DaggerAppComponent.builder()
                 .application(this)
                 .registerActivity(R.layout.activity_register)
+                .loginActivity(R.layout.activity_login)
                 .build();
     }
 }
