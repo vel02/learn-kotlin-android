@@ -77,6 +77,10 @@ public class SignedInActivity extends BaseActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
             viewModel.signOut();
+            return true;
+        } else if (item.getItemId() == R.id.action_update_profile) {
+            Log.d(TAG, "onOptionsItemSelected: update profile here...");
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
