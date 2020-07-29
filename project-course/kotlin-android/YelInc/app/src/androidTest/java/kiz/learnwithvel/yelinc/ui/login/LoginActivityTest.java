@@ -16,7 +16,6 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -47,7 +46,7 @@ public class LoginActivityTest {
         onView(withId(R.id.register_password)).perform(typeText(VALID_PASSWORD));
         onView(withId(R.id.register_confirm_password)).perform(typeText(CONFIRM_PASSWORD), closeSoftKeyboard());
         onView(withId(R.id.register_register)).perform(click());
-        pressImeActionButton();
+        pressBack();
     }
 
     @Test
