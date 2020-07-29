@@ -33,6 +33,9 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
         @BindsInstance
         Builder loginActivity(@Named("Login Activity") int layout);
 
+        @BindsInstance
+        Builder signedInActivity(@Named("Signed In Activity") int layout);
+
         AppComponent build();
     }
 

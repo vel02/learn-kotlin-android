@@ -11,6 +11,7 @@ public class BaseApplication extends DaggerApplication {
                 .application(this)
                 .registerActivity(R.layout.activity_register)
                 .loginActivity(R.layout.activity_login)
+                .signedInActivity(R.layout.activity_signed_in)
                 .build();
     }
 }
