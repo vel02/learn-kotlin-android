@@ -1,6 +1,5 @@
 package kiz.learnwithvel.yelinc.util;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -26,6 +25,21 @@ public class Utilities {
         }
     }
 
+    public static class Activity {
+        private Activity() {
+        }
+
+        public static void hideSoftKeyboard(android.app.Activity view) {
+            InputMethodManager manager = (InputMethodManager) view.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (manager != null) {
+                View v = view.getCurrentFocus();
+                if (v == null) {
+                    v = new View(view);
+                }
+                manager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            }
+        }
+    }
 
     public static class Field {
         private Field() {
@@ -60,7 +74,7 @@ public class Utilities {
             Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show();
         }
 
-        public static void showMessage(Activity view, String message) {
+        public static void showMessage(Context view, String message) {
             Toast.makeText(view, message, Toast.LENGTH_SHORT).show();
         }
     }

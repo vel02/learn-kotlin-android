@@ -13,4 +13,6 @@
     <string name="activity_label_reset_password">Reset Password</string>
     <string name="dialog_label_confirm">CONFIRM</string>
     <string name="tag_dialog_forgot_password">dialog_forgot_password</string>
+    <string name="dialog_label_cancel">CANCEL</string>
+    <string name="tag_dialog_verification">dialog_verification</string>
 </resources>

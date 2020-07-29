@@ -122,6 +122,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="@{(v) -> listener.onClick(v)}"
                 android:text="@string/activity_label_resend_verification_email"
                 android:textColor="@color/secondaryLightColor"
                 android:textSize="16sp"

@@ -18,7 +18,6 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<Boolean> showLoading = new MutableLiveData<>();
     private MutableLiveData<AuthResource> authStatus = new MutableLiveData<>();
 
-    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Inject
     public LoginViewModel() {
@@ -26,8 +25,8 @@ public class LoginViewModel extends ViewModel {
         authStatus.setValue(null);
     }
 
-    public FirebaseAuth.AuthStateListener getAuthStateListener() {
-        return authStateListener;
+    public void setAuthStatus(AuthResource authStatus) {
+        this.authStatus.setValue(authStatus);
     }
 
     public void setShowLoading(boolean show) {
@@ -47,27 +46,27 @@ public class LoginViewModel extends ViewModel {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     showLoading.setValue(false);
+                    if (task.isSuccessful()) {
+                        verifyAuthentication();
+                    }
                 }).addOnFailureListener(e -> {
             authStatus.setValue(AuthResource.unauthenticated("Authentication Failed. Make sure to have a correct email or password"));
             showLoading.setValue(false);
         });
     }
 
-    public void firebaseAuthListener() {
-        authStateListener = firebaseAuth -> {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user != null) {
-                if (user.isEmailVerified()) {
-                    authStatus.setValue(AuthResource.authenticated("Authentication Success"));
-                    showLoading.setValue(false);
-                } else {
-                    authStatus.setValue(AuthResource.verification("Check your Email Inbox for a Verification Link"));
-                    showLoading.setValue(false);
-                    FirebaseAuth.getInstance().signOut();
-                }
+    private void verifyAuthentication() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            if (user.isEmailVerified()) {
+                authStatus.setValue(AuthResource.authenticated("Authentication Success"));
+                showLoading.setValue(false);
+            } else {
+                authStatus.setValue(AuthResource.verification("Check your Email Inbox for a Verification Link"));
+                showLoading.setValue(false);
+                FirebaseAuth.getInstance().signOut();
             }
-        };
-        authStatus.setValue(null);
+        }
     }
 
 }

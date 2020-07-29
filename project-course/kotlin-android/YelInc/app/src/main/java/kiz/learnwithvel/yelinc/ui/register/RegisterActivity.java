@@ -10,6 +10,7 @@ import kiz.learnwithvel.yelinc.databinding.ActivityRegisterBinding;
 import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.viewmodel.ViewModelProviderFactory;
 
+import static kiz.learnwithvel.yelinc.util.Utilities.Activity.hideSoftKeyboard;
 import static kiz.learnwithvel.yelinc.util.Utilities.Field.areFieldEmpty;
 import static kiz.learnwithvel.yelinc.util.Utilities.Field.isMatch;
 import static kiz.learnwithvel.yelinc.util.Utilities.Field.isValid;
@@ -63,6 +64,7 @@ public class RegisterActivity extends BaseActivity {
             } else {
                 showMessage(binding.registerParent, "You must fill out all the fields");
             }
+            hideSoftKeyboard(this);
         });
     }
 

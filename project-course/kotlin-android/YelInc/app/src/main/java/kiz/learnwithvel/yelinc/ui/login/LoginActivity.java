@@ -6,17 +6,17 @@ import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.firebase.auth.FirebaseAuth;
-
 import javax.inject.Inject;
 
 import kiz.learnwithvel.yelinc.R;
 import kiz.learnwithvel.yelinc.databinding.ActivityLoginBinding;
 import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.ui.login.dialog.ForgotPasswordDialog;
+import kiz.learnwithvel.yelinc.ui.login.dialog.ResendVerificationDialog;
 import kiz.learnwithvel.yelinc.ui.register.RegisterActivity;
 import kiz.learnwithvel.yelinc.viewmodel.ViewModelProviderFactory;
 
+import static kiz.learnwithvel.yelinc.util.Utilities.Activity.hideSoftKeyboard;
 import static kiz.learnwithvel.yelinc.util.Utilities.Field.areFieldEmpty;
 import static kiz.learnwithvel.yelinc.util.Utilities.Field.isValid;
 import static kiz.learnwithvel.yelinc.util.Utilities.Message.showMessage;
@@ -31,7 +31,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     ActivityLoginBinding binding;
 
     private LoginViewModel viewModel;
-
     private String email, password;
 
     private void getFieldValues() {
@@ -39,29 +38,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         password = binding.contentLogin.loginPassword.getText().toString();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseAuth.getInstance().addAuthStateListener(viewModel.getAuthStateListener());
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (viewModel.getAuthStateListener() != null) {
-            FirebaseAuth.getInstance().removeAuthStateListener(viewModel.getAuthStateListener());
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activateToolbar(false, "Login");
         viewModel = new ViewModelProvider(this, providerFactory).get(LoginViewModel.class);
-        viewModel.firebaseAuthListener();
+        subscribeObserver();
         binding.contentLogin.setListener(this);
         login();
-        subscribeObserver();
     }
 
     private void login() {
@@ -77,6 +62,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             } else {
                 showMessage(binding.loginParent, "You must fill out all the fields");
             }
+            hideSoftKeyboard(this);
         });
 
     }
@@ -91,7 +77,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         viewModel.observeAuthStatus().observe(this, authResource -> {
             if (authResource != null) {
-                showMessage(binding.loginParent, authResource.message);
+                showMessage(this, authResource.message);
             }
         });
 
@@ -111,6 +97,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 dialog.show(getSupportFragmentManager(), getString(R.string.tag_dialog_forgot_password));
                 break;
             }
+            case R.id.login_verification_email: {
+                ResendVerificationDialog dialog = new ResendVerificationDialog();
+                dialog.show(getSupportFragmentManager(), getString(R.string.tag_dialog_verification));
+                break;
+            }
         }
     }
+
 }
