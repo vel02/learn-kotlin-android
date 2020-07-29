@@ -16,4 +16,5 @@
     <string name="dialog_label_cancel">CANCEL</string>
     <string name="tag_dialog_verification">dialog_verification</string>
     <string name="menu_label_logout">Logout</string>
+    <string name="user_default_profile">https://pbs.twimg.com/profile_images/953129360948645888/pCxp0x0I_400x400.jpg</string>
 </resources>

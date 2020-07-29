@@ -32,7 +32,7 @@ public class SignedInActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activateToolbar(false, "User");
+        activateToolbar(false, "Straw Hat Crew");
         viewModel = new ViewModelProvider(this, providerFactory).get(SignedInViewModel.class);
         subscribeObservers();
     }
@@ -52,6 +52,17 @@ public class SignedInActivity extends BaseActivity {
                         finish();
                         break;
                 }
+            }
+        });
+
+        viewModel.observeUserState().observe(this, user -> {
+            if (user != null) {
+                if (!user.getName().isEmpty()) {
+                    binding.contentSignedIn.setName(user.getEmail());
+                } else {
+                    binding.contentSignedIn.setName("Pirate Crew");
+                }
+                binding.contentSignedIn.setSource(user.getPhoto());
             }
         });
     }
