@@ -42,7 +42,7 @@ public class ResendVerificationDialog extends DialogFragment {
 
     private void configuration() {
         if (getDialog() == null) return;
-        getDialog().setCancelable(false);
+        getDialog().setCanceledOnTouchOutside(false);
     }
 
     private void getFieldValues() {
@@ -57,6 +57,7 @@ public class ResendVerificationDialog extends DialogFragment {
         context = getActivity();
         confirm();
         cancel();
+        configuration();
         return binding.getRoot();
     }
 
@@ -108,9 +109,7 @@ public class ResendVerificationDialog extends DialogFragment {
                         } else {
                             showMessage(context, "Could'nt send verification email");
                         }
-                    }).addOnFailureListener((Activity) context, e -> {
-                showMessage(context, "Failed. user is " + user);
-            });
+                    });
         }
     }
 

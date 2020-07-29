@@ -18,15 +18,10 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<Boolean> showLoading = new MutableLiveData<>();
     private MutableLiveData<AuthResource> authStatus = new MutableLiveData<>();
 
-
     @Inject
     public LoginViewModel() {
         showLoading.setValue(false);
         authStatus.setValue(null);
-    }
-
-    public void setAuthStatus(AuthResource authStatus) {
-        this.authStatus.setValue(authStatus);
     }
 
     public void setShowLoading(boolean show) {

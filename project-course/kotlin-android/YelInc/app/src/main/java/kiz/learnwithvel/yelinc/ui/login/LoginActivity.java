@@ -44,9 +44,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         activateToolbar(false, "Login");
         viewModel = new ViewModelProvider(this, providerFactory).get(LoginViewModel.class);
-        subscribeObserver();
         binding.contentLogin.setListener(this);
         login();
+        subscribeObserver();
     }
 
     private void login() {
