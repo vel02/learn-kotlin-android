@@ -14,6 +14,7 @@ import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.ui.login.dialog.ForgotPasswordDialog;
 import kiz.learnwithvel.yelinc.ui.login.dialog.ResendVerificationDialog;
 import kiz.learnwithvel.yelinc.ui.register.RegisterActivity;
+import kiz.learnwithvel.yelinc.ui.signedin.SignedInActivity;
 import kiz.learnwithvel.yelinc.viewmodel.ViewModelProviderFactory;
 
 import static kiz.learnwithvel.yelinc.util.Utilities.Activity.hideSoftKeyboard;
@@ -77,7 +78,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         viewModel.observeAuthStatus().observe(this, authResource -> {
             if (authResource != null) {
-                showMessage(this, authResource.message);
+                switch (authResource.status) {
+                    case AUTHENTICATED:
+                        showMessage(this, authResource.message);
+                        Intent intent = new Intent(this, SignedInActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    case VERIFICATION:
+                    case UNAUTHENTICATED:
+                        showMessage(this, authResource.message);
+                        break;
+                }
             }
         });
 

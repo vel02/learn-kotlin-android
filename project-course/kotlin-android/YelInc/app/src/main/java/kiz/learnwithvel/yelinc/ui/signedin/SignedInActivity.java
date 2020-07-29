@@ -22,6 +22,7 @@ public class SignedInActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activateToolbar(false, "User");
         viewModel = new ViewModelProvider(this, providerFactory).get(SignedInViewModel.class);
 
     }
