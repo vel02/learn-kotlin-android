@@ -34,6 +34,7 @@ import static kiz.learnwithvel.yelinc.Utilities.VALID_PASSWORD;
 
 /**
  * source:
+ * https://stackoverflow.com/questions/54375039/how-to-click-android-phone-home-button-programmatically-in-espresso
  * https://i1.wp.com/swipetips.com/wp-content/uploads/2019/09/home-screen.jpg?resize=532%2C851&ssl=1
  * https://stackoverflow.com/questions/40363391/click-on-menu-item-that-is-sometimes-in-the-overflow-menu/40864574#40864574
  * https://stackoverflow.com/questions/23293301/how-to-regain-access-on-a-activity-after-sending-it-to-background3
