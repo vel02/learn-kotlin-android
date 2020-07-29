@@ -1,5 +1,7 @@
 package kiz.learnwithvel.yelinc.ui.login;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -61,6 +63,17 @@ public class LoginViewModel extends ViewModel {
                 showLoading.setValue(false);
                 FirebaseAuth.getInstance().signOut();
             }
+        }
+    }
+
+    public void checkAuthenticationState() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            authStatus.setValue(AuthResource.authenticated("Authenticated"));
+            Log.d(TAG, "checkAuthenticationState: authenticated");
+        } else {
+            authStatus.setValue(AuthResource.unauthenticated("Unauthenticated"));
+            Log.d(TAG, "checkAuthenticationState: unauthenticated");
         }
     }
 

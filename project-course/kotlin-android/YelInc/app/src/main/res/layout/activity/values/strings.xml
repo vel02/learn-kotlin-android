@@ -15,4 +15,5 @@
     <string name="tag_dialog_forgot_password">dialog_forgot_password</string>
     <string name="dialog_label_cancel">CANCEL</string>
     <string name="tag_dialog_verification">dialog_verification</string>
+    <string name="menu_label_logout">Logout</string>
 </resources>
