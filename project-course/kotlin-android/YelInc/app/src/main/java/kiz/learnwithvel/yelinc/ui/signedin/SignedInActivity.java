@@ -18,6 +18,7 @@ import kiz.learnwithvel.yelinc.R;
 import kiz.learnwithvel.yelinc.databinding.ActivitySignedInBinding;
 import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.ui.login.LoginActivity;
+import kiz.learnwithvel.yelinc.ui.settings.SettingsActivity;
 import kiz.learnwithvel.yelinc.ui.signedin.dialog.UpdateProfileDialog;
 import kiz.learnwithvel.yelinc.viewmodel.ViewModelProviderFactory;
 
@@ -90,6 +91,11 @@ public class SignedInActivity extends BaseActivity implements UpdateProfileDialo
         } else if (item.getItemId() == R.id.action_update_profile) {
             UpdateProfileDialog dialog = new UpdateProfileDialog();
             dialog.show(getSupportFragmentManager(), getString(R.string.tag_update_profile_dialog));
+            return true;
+        } else if (item.getItemId() == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

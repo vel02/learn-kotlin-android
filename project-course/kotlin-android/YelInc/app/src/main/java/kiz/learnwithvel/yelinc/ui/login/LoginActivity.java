@@ -49,12 +49,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         subscribeObserver();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        viewModel.checkAuthenticationState();
-    }
-
     private void login() {
 
         binding.contentLogin.loginLogin.setOnClickListener(view -> {
@@ -88,10 +82,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                     finish();
+                } else {
+                    showMessage(binding.loginParent, authResource.message);
                 }
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.checkAuthenticationState();
     }
 
     @Override

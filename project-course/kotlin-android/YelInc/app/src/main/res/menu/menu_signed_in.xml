@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/menu_label_settings" />
+
     <item
         android:id="@+id/action_logout"
         android:title="@string/menu_label_logout" />
@@ -11,5 +16,6 @@
         android:icon="@drawable/ic_update_profile"
         android:title="@string/menu_label_update_profile"
         app:showAsAction="ifRoom" />
+
 
 </menu>

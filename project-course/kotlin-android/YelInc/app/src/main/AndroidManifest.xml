@@ -15,7 +15,17 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.signedin.SignedInActivity" />
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:parentActivityName=".ui.login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.login.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".ui.signedin.SignedInActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">

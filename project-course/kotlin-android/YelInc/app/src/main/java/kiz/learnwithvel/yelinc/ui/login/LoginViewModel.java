@@ -72,7 +72,6 @@ public class LoginViewModel extends ViewModel {
             authStatus.setValue(AuthResource.authenticated("Authenticated"));
             Log.d(TAG, "checkAuthenticationState: authenticated");
         } else {
-            authStatus.setValue(AuthResource.unauthenticated("Unauthenticated"));
             Log.d(TAG, "checkAuthenticationState: unauthenticated");
         }
     }
