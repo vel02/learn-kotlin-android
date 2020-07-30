@@ -41,11 +41,10 @@ public class SettingsViewModel extends ViewModel {
                     addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             showMessage(view, "Password Reset Email Sent");
-                            showLoading.setValue(false);
                         } else {
                             showMessage(view, "No user associated with that email");
-                            showLoading.setValue(false);
                         }
+                        showLoading.setValue(false);
                     });
         }
     }
