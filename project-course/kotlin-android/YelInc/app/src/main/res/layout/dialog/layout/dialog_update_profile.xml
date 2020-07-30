@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialog_update_profile_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/layout_background_round_corners"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/dialog_update_profile_label"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_label_resend_update_profile"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/dialog_update_profile_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/activity_hint_name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_update_profile_label" />
+
+        <EditText
+            android:id="@+id/dialog_update_profile_photo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/activity_hint_photo"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_update_profile_name" />
+
+        <TextView
+            android:id="@+id/dialog_update_profile_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="16dp"
+            android:text="@string/dialog_label_confirm"
+            android:textColor="@color/secondaryLightColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_update_profile_photo" />
+
+        <TextView
+            android:id="@+id/dialog_update_profile_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="16dp"
+            android:text="@string/dialog_label_cancel"
+            android:textColor="@color/secondaryLightColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_update_profile_photo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

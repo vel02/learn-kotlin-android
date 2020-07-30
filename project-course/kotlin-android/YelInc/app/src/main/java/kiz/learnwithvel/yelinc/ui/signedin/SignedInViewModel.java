@@ -20,7 +20,7 @@ public class SignedInViewModel extends ViewModel {
     private static final String TAG = "SignedInViewModel";
 
     private MutableLiveData<AuthResource> authState = new MutableLiveData<>();
-    private MutableLiveData<User> userState = new MutableLiveData<>();
+    private MutableLiveData<FirebaseUser> userState = new MutableLiveData<>();
     private FirebaseAuth.AuthStateListener authStateListener;
 
     @Inject
@@ -32,7 +32,7 @@ public class SignedInViewModel extends ViewModel {
         return authState;
     }
 
-    public LiveData<User> observeUserState() {
+    public LiveData<FirebaseUser> observeUserState() {
         return userState;
     }
 
@@ -63,7 +63,7 @@ public class SignedInViewModel extends ViewModel {
                 Log.d(TAG, "getUserDetails: properties: " + properties);
 
                 User u = new User(uid, name, email, photo);
-                userState.setValue(u);
+                userState.setValue(user);
             }
 
         };

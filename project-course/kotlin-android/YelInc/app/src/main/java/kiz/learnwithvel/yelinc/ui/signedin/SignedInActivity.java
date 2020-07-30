@@ -9,15 +9,19 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import javax.inject.Inject;
 
 import kiz.learnwithvel.yelinc.R;
 import kiz.learnwithvel.yelinc.databinding.ActivitySignedInBinding;
 import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.ui.login.LoginActivity;
+import kiz.learnwithvel.yelinc.ui.signedin.dialog.UpdateProfileDialog;
 import kiz.learnwithvel.yelinc.viewmodel.ViewModelProviderFactory;
 
-public class SignedInActivity extends BaseActivity {
+public class SignedInActivity extends BaseActivity implements UpdateProfileDialog.OnDialogListener {
 
     private static final String TAG = "SignedInActivity";
 
@@ -28,6 +32,14 @@ public class SignedInActivity extends BaseActivity {
 
     private SignedInViewModel viewModel;
 
+    @Override
+    public void updateUserProfile() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            binding.contentSignedIn.setName(user.getDisplayName());
+            binding.contentSignedIn.setSource(user.getPhotoUrl());
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +69,9 @@ public class SignedInActivity extends BaseActivity {
 
         viewModel.observeUserState().observe(this, user -> {
             if (user != null) {
-                if (!user.getName().isEmpty()) {
-                    binding.contentSignedIn.setName(user.getEmail());
-                } else {
-                    binding.contentSignedIn.setName("Pirate Crew");
-                }
-                binding.contentSignedIn.setSource(user.getPhoto());
+                binding.contentSignedIn.setName((user.getDisplayName() != null
+                        && !user.getDisplayName().isEmpty()) ? user.getDisplayName() : "Pirate Crew");
+                binding.contentSignedIn.setSource(user.getPhotoUrl());
             }
         });
     }
@@ -79,7 +88,8 @@ public class SignedInActivity extends BaseActivity {
             viewModel.signOut();
             return true;
         } else if (item.getItemId() == R.id.action_update_profile) {
-            Log.d(TAG, "onOptionsItemSelected: update profile here...");
+            UpdateProfileDialog dialog = new UpdateProfileDialog();
+            dialog.show(getSupportFragmentManager(), getString(R.string.tag_update_profile_dialog));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -98,5 +108,6 @@ public class SignedInActivity extends BaseActivity {
             viewModel.removeAuthStateListener();
         }
     }
+
 
 }

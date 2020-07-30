@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="uri_profile">https://avatars1.githubusercontent.com/u/34228002?s=460&amp;u=840e0dfa5fedf0eba5d523e6098e3d7c01816a83&amp;v=4</string>
     <string name="registration_act_label">Email Registration</string>
     <string name="activity_hint_email">Email</string>
     <string name="activity_hint_password">Password</string>
@@ -18,4 +19,8 @@
     <string name="menu_label_logout">Logout</string>
     <string name="user_default_profile">https://pbs.twimg.com/profile_images/953129360948645888/pCxp0x0I_400x400.jpg</string>
     <string name="menu_label_update_profile">Profile</string>
+    <string name="activity_label_resend_update_profile">Update Profile</string>
+    <string name="tag_update_profile_dialog">tag_update_profile_dialog</string>
+    <string name="activity_hint_name">Name</string>
+    <string name="activity_hint_photo">Uri Photo</string>
 </resources>
