@@ -4,15 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
 import javax.inject.Inject;
 
-import dagger.android.support.DaggerAppCompatActivity;
 import kiz.learnwithvel.yelinc.R;
 import kiz.learnwithvel.yelinc.databinding.ActivityLoginBinding;
+import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.ui.login.dialog.ForgotPasswordDialog;
 import kiz.learnwithvel.yelinc.ui.login.dialog.ResendVerificationDialog;
 import kiz.learnwithvel.yelinc.ui.register.RegisterActivity;
@@ -24,7 +22,7 @@ import static kiz.learnwithvel.yelinc.util.Utilities.Field.areFieldEmpty;
 import static kiz.learnwithvel.yelinc.util.Utilities.Field.isValid;
 import static kiz.learnwithvel.yelinc.util.Utilities.Message.showMessage;
 
-public class LoginActivity extends DaggerAppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "LoginActivity";
 
@@ -45,7 +43,7 @@ public class LoginActivity extends DaggerAppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activateToolbar();
+        activateToolbar(false, "Login");
         viewModel = new ViewModelProvider(this, providerFactory).get(LoginViewModel.class);
         binding.contentLogin.setListener(this);
         login();
@@ -125,21 +123,4 @@ public class LoginActivity extends DaggerAppCompatActivity implements View.OnCli
             }
         }
     }
-
-    protected void activateToolbar() {
-
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null) {
-            Toolbar toolbar = findViewById(R.id.toolbar);
-            if (toolbar != null) {
-                setSupportActionBar(toolbar);
-                actionBar = getSupportActionBar();
-            }
-            if (actionBar != null) {
-                actionBar.setDisplayHomeAsUpEnabled(false);
-                actionBar.setTitle("Login");
-            }
-        }
-    }
-
 }

@@ -17,12 +17,6 @@ public class BaseActivity extends DaggerAppCompatActivity {
 
     private static final String TAG = "BaseActivity";
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        checkAuthenticationState();
-    }
-
     protected void checkAuthenticationState() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {

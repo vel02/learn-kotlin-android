@@ -102,6 +102,12 @@ public class SignedInActivity extends BaseActivity implements UpdateProfileDialo
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        checkAuthenticationState();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         if (viewModel.getAuthStateListener() != null) {
