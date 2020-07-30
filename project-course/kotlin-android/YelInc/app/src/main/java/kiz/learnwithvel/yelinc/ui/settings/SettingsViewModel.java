@@ -32,6 +32,24 @@ public class SettingsViewModel extends ViewModel {
         return showLoading;
     }
 
+
+    public void sendResetPassword(View view) {
+        showLoading.setValue(true);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null && user.getEmail() != null) {
+            FirebaseAuth.getInstance().sendPasswordResetEmail(user.getEmail()).
+                    addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            showMessage(view, "Password Reset Email Sent");
+                            showLoading.setValue(false);
+                        } else {
+                            showMessage(view, "No user associated with that email");
+                            showLoading.setValue(false);
+                        }
+                    });
+        }
+    }
+
     public AuthCredential signInCredential(String password) {
         showLoading.setValue(true);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

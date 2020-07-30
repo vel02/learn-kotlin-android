@@ -28,4 +28,6 @@
     <string name="activity_label_change_email">Change Email</string>
     <string name="activity_label_new_email">New Email</string>
     <string name="activity_label_current_password">Current Password</string>
+    <string name="activity_label_change_password">Change Password</string>
+    <string name="activity_label_or">OR</string>
 </resources>

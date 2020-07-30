@@ -41,6 +41,7 @@ public class SettingsActivity extends BaseActivity {
         activateToolbar(true, "Settings");
         viewModel = new ViewModelProvider(this, providerFactory).get(SettingsViewModel.class);
         editUserEmail();
+        changePassword();
         subscribeObserver();
     }
 
@@ -50,6 +51,12 @@ public class SettingsActivity extends BaseActivity {
             if (showLoading != null) {
                 binding.setShowLoading(showLoading);
             }
+        });
+    }
+
+    private void changePassword() {
+        binding.contentSettings.settingsChangePassword.setOnClickListener(view -> {
+            viewModel.sendResetPassword(view);
         });
     }
 
