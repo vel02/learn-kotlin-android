@@ -10,6 +10,7 @@ import javax.inject.Inject;
 
 import kiz.learnwithvel.yelinc.R;
 import kiz.learnwithvel.yelinc.databinding.ActivityLoginBinding;
+import kiz.learnwithvel.yelinc.resource.AuthResource;
 import kiz.learnwithvel.yelinc.ui.BaseActivity;
 import kiz.learnwithvel.yelinc.ui.login.dialog.ForgotPasswordDialog;
 import kiz.learnwithvel.yelinc.ui.login.dialog.ResendVerificationDialog;
@@ -23,8 +24,6 @@ import static kiz.learnwithvel.yelinc.util.Utilities.Field.isValid;
 import static kiz.learnwithvel.yelinc.util.Utilities.Message.showMessage;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-
-    private static final String TAG = "LoginActivity";
 
     @Inject
     ViewModelProviderFactory providerFactory;
@@ -84,18 +83,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         viewModel.observeAuthStatus().observe(this, authResource -> {
             if (authResource != null) {
-                switch (authResource.status) {
-                    case AUTHENTICATED:
-                        showMessage(this, authResource.message);
-                        Intent intent = new Intent(this, SignedInActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        startActivity(intent);
-                        finish();
-                        break;
-                    case VERIFICATION:
-                    case UNAUTHENTICATED:
-                        showMessage(this, authResource.message);
-                        break;
+                if (authResource.status == AuthResource.AuthStatus.AUTHENTICATED) {
+                    Intent intent = new Intent(this, SignedInActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
