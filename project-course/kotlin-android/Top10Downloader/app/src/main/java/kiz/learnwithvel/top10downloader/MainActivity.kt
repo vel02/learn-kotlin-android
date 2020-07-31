@@ -1,18 +1,11 @@
 package kiz.learnwithvel.top10downloader
 
-import android.content.Context
-import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import kiz.learnwithvel.top10downloader.adapter.FeedAdapter
-import kiz.learnwithvel.top10downloader.util.ParseApplications
-import kotlinx.android.synthetic.main.activity_main.*
-import java.net.URL
-import kotlin.properties.Delegates
+import kiz.learnwithvel.top10downloader.util.DownloadData
 
 class FeedEntry {
 
@@ -31,53 +24,13 @@ class FeedEntry {
 
 }
 
-class MainActivity : AppCompatActivity() {
-
-    companion object {
-        private const val TAG = "MainActivity"
-        private const val KEY_LINK = "feed_link"
-        private const val KEY_LIMIT = "feed_limit"
+private const val TAG = "MainActivity"
+private const val KEY_LINK = "feed_link"
+private const val KEY_LIMIT = "feed_limit"
 
 
-        private class DownloadData(context: Context, list: ListView) :
-            AsyncTask<String, Void, String>() {
+class MainActivity : AppCompatActivity(), DownloadData.DownloaderCallBack {
 
-            //backing properties to avoid memory leak
-            private var propContext: Context by Delegates.notNull()
-            private var propListView: ListView by Delegates.notNull()
-
-            init {
-                propContext = context
-                propListView = list
-            }
-
-            override fun doInBackground(vararg url: String?): String {
-                val rssFeed = downloadXML(url[0])
-                if (rssFeed.isEmpty()) {
-                    Log.e(TAG, "doInBackground: Error downloading")
-                }
-                return rssFeed;
-            }
-
-            override fun onPostExecute(result: String) {
-                val parseApplications = ParseApplications()
-                parseApplications.parse(result)
-
-                val adapter =
-                    FeedAdapter(
-                        propContext,
-                        R.layout.layout_list_item,
-                        parseApplications.applications
-                    )
-                propListView.adapter = adapter
-            }
-
-            private fun downloadXML(urlPath: String?): String {
-                return URL(urlPath).readText()
-            }
-
-        }
-    }
 
     private var downloadData: DownloadData? = null
     private var feedUrl: String =
@@ -99,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun downloadUrl(url: String) {
         if (url != feedCached) {
             Log.d(TAG, "downloadUrl: called")
-            downloadData = DownloadData(this, list_item)
+            downloadData = DownloadData(this)
             downloadData?.execute(url)
             feedCached = url
         }
@@ -149,6 +102,10 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         downloadData?.cancel(true)
+    }
+
+    override fun onDataAvailable(data: List<FeedEntry>) {
+        TODO("Not yet implemented")
     }
 
 }
