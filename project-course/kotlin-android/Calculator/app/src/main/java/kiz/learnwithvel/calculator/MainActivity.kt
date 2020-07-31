@@ -18,15 +18,15 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel: CalculatorViewModel by viewModels()
 
-        viewModel.result.observe(this, Observer { stringResult ->
+        viewModel.stringResult.observe(this, Observer { stringResult ->
             edt_result.setText(stringResult)
         })
 
-        viewModel.newNumber.observe(this, Observer { stringNumber ->
+        viewModel.stringNewNumber.observe(this, Observer { stringNumber ->
             edt_newNumber.setText(stringNumber)
         })
 
-        viewModel.operation.observe(this, Observer { stringOperation ->
+        viewModel.stringOperation.observe(this, Observer { stringOperation ->
             tv_operation.text = stringOperation
         })
 

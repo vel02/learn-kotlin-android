@@ -1,6 +1,8 @@
 package kiz.learnwithvel.calculator
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class CalculatorViewModel : ViewModel() {
@@ -10,9 +12,17 @@ class CalculatorViewModel : ViewModel() {
     private var mOperand1: Double? = null
     private var mPendingOperation = "="
 
-    val result = MutableLiveData<String>()
-    val newNumber = MutableLiveData<String>()
-    val operation = MutableLiveData<String>()
+    private val result = MutableLiveData<Double>()
+    val stringResult: LiveData<String>
+        get() = Transformations.map(result) { it.toString() }
+
+    private val newNumber = MutableLiveData<String>()
+    val stringNewNumber: LiveData<String>
+        get() = newNumber
+
+    private val operation = MutableLiveData<String>()
+    val stringOperation: LiveData<String>
+        get() = operation
 
     fun digitPressed(caption: String) {
         if (newNumber.value != null) {
@@ -73,7 +83,7 @@ class CalculatorViewModel : ViewModel() {
             }
         }
 
-        result.value = mOperand1.toString()
+        result.value = mOperand1
         newNumber.value = ""
     }
 
