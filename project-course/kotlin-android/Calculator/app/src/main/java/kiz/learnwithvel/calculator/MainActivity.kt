@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewModel: CalculatorViewModel by viewModels()
+        val viewModel: BigDecimalViewModel by viewModels()
 
         viewModel.stringResult.observe(this, Observer { stringResult ->
             edt_result.setText(stringResult)
