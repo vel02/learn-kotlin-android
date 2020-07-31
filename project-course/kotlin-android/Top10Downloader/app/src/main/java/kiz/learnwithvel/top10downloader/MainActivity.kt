@@ -1,11 +1,9 @@
 package kiz.learnwithvel.top10downloader
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import kiz.learnwithvel.top10downloader.util.DownloadData
 
 class FeedEntry {
 
@@ -29,14 +27,12 @@ private const val KEY_LINK = "feed_link"
 private const val KEY_LIMIT = "feed_limit"
 
 
-class MainActivity : AppCompatActivity(), DownloadData.DownloaderCallBack {
+class MainActivity : AppCompatActivity() {
 
 
-    private var downloadData: DownloadData? = null
     private var feedUrl: String =
         "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=%d/xml"
     private var feedLimit: Int = 10
-    private var feedCached = "CACHED_LINK"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,17 +42,7 @@ class MainActivity : AppCompatActivity(), DownloadData.DownloaderCallBack {
             feedUrl = savedInstanceState.getString(KEY_LINK)!!
             feedLimit = savedInstanceState.getInt(KEY_LIMIT)
         }
-        downloadUrl(feedUrl.format(feedLimit))
-    }
-
-    private fun downloadUrl(url: String) {
-        if (url != feedCached) {
-            Log.d(TAG, "downloadUrl: called")
-            downloadData = DownloadData(this)
-            downloadData?.execute(url)
-            feedCached = url
-        }
-
+//        downloadUrl(feedUrl.format(feedLimit))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -85,11 +71,11 @@ class MainActivity : AppCompatActivity(), DownloadData.DownloaderCallBack {
                 }
             }
             R.id.action_refresh -> {
-                feedCached = "CACHED_LINK"
+//                feedCached = "CACHED_LINK"
             }
             else -> return super.onOptionsItemSelected(item)
         }
-        downloadUrl(feedUrl.format(feedLimit))
+//        downloadUrl(feedUrl.format(feedLimit))
         return true
     }
 
@@ -97,15 +83,6 @@ class MainActivity : AppCompatActivity(), DownloadData.DownloaderCallBack {
         super.onSaveInstanceState(outState)
         outState.putString(KEY_LINK, feedUrl)
         outState.putInt(KEY_LIMIT, feedLimit)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        downloadData?.cancel(true)
-    }
-
-    override fun onDataAvailable(data: List<FeedEntry>) {
-        TODO("Not yet implemented")
     }
 
 }
