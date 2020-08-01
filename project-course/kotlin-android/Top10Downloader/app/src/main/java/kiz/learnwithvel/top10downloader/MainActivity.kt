@@ -4,22 +4,19 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import kiz.learnwithvel.top10downloader.adapter.FeedAdapter
+import kiz.learnwithvel.top10downloader.viewmodel.EMPTY_FEED_LIST
+import kiz.learnwithvel.top10downloader.viewmodel.FeedViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class FeedEntry {
-
     var name: String = ""
     var artist: String = ""
     var releaseDate: String = ""
     var summary: String = ""
     var imageUrl: String = ""
-
-    override fun toString(): String {
-        return "FeedEntry(name='$name'," +
-                " artist='$artist'," +
-                " releaseDate='$releaseDate', " +
-                "imageUrl='$imageUrl')"
-    }
-
 }
 
 private const val TAG = "MainActivity"
@@ -33,16 +30,24 @@ class MainActivity : AppCompatActivity() {
     private var feedUrl: String =
         "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=%d/xml"
     private var feedLimit: Int = 10
+    private val feedViewModel: FeedViewModel by lazy { ViewModelProvider(this).get(FeedViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val feedAdapter = FeedAdapter(this, R.layout.layout_list_item, EMPTY_FEED_LIST)
+        list_item.adapter = feedAdapter
+
+
         if (savedInstanceState != null) {
             feedUrl = savedInstanceState.getString(KEY_LINK)!!
             feedLimit = savedInstanceState.getInt(KEY_LIMIT)
         }
-//        downloadUrl(feedUrl.format(feedLimit))
+        feedViewModel.feedEntries.observe(this, Observer<List<FeedEntry>> {
+            feedAdapter.setFeedList(it ?: EMPTY_FEED_LIST)
+        })
+        feedViewModel.downloadUrl(feedUrl.format(feedLimit))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -71,11 +76,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.action_refresh -> {
-//                feedCached = "CACHED_LINK"
+                feedViewModel.invalidate()
             }
             else -> return super.onOptionsItemSelected(item)
         }
-//        downloadUrl(feedUrl.format(feedLimit))
+        feedViewModel.downloadUrl(feedUrl.format(feedLimit))
         return true
     }
 

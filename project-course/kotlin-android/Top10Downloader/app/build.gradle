@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    buildToolsVersion "30.0.1"
 
     defaultConfig {
         applicationId "kiz.learnwithvel.top10downloader"
@@ -44,6 +44,8 @@ android {
         androidTest.java.srcDirs += 'src/test-common/java'
         test.java.srcDirs += 'src/test-common/java'
     }
+
+    kotlinOptions { jvmTarget = "1.8" }
 
 
 }

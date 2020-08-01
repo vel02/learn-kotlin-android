@@ -20,7 +20,7 @@ class ViewHolder(v: View) {
 class FeedAdapter(
     context: Context,
     private val resource: Int,
-    private val applications: List<FeedEntry>
+    private var applications: List<FeedEntry>
 ) :
     ArrayAdapter<FeedEntry>(context, resource) {
 
@@ -51,5 +51,10 @@ class FeedAdapter(
 
     override fun getCount(): Int {
         return applications.size
+    }
+
+    fun setFeedList(feedList: List<FeedEntry>) {
+        this.applications = feedList
+        notifyDataSetChanged()
     }
 }
