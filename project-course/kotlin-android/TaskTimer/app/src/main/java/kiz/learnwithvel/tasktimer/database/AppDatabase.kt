@@ -1,9 +1,11 @@
-package kiz.learnwithvel.tasktimer
+package kiz.learnwithvel.tasktimer.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import kiz.learnwithvel.tasktimer.util.SingletonHolder
+import kiz.learnwithvel.tasktimer.util.TasksContract
 
 /**
  * Basic database class for the application.
@@ -17,7 +19,11 @@ private const val DATABASE_NAME = "TaskTimer.db"
 private const val DATABASE_VERSION = 1
 
 internal class AppDatabase private constructor(context: Context) :
-    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+    SQLiteOpenHelper(
+        context,
+        DATABASE_NAME, null,
+        DATABASE_VERSION
+    ) {
 
     init {
         Log.d(TAG, "AppDatabase: initialising ")
@@ -35,22 +41,15 @@ internal class AppDatabase private constructor(context: Context) :
     }
 
     override fun onUpgrade(database: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-
+        Log.d(TAG, "onUpgrade: starts")
+        when (oldVersion) {
+            1 -> {
+                //upgrade logic from version 1
+            }
+            else -> throw  IllegalStateException("onUpgrade() with unknown newVersion: $newVersion")
+        }
     }
 
-    //Singleton
     companion object : SingletonHolder<AppDatabase, Context>(::AppDatabase)
-
-    //Singleton
-//    companion object {
-//
-//        @Volatile
-//        private var instance: AppDatabase? = null
-//
-//        fun getInstance(context: Context): AppDatabase =
-//            instance ?: synchronized(this) {
-//                instance ?: AppDatabase(context).also { instance = it }
-//            }
-//    }
 
 }

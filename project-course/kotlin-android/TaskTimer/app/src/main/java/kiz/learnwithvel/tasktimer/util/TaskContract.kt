@@ -1,4 +1,4 @@
-package kiz.learnwithvel.tasktimer
+package kiz.learnwithvel.tasktimer.util
 
 import android.provider.BaseColumns
 
