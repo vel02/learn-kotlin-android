@@ -4,8 +4,10 @@ import android.content.ContentProvider
 import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
+import android.database.sqlite.SQLiteQueryBuilder
 import android.net.Uri
 import android.util.Log
+import kiz.learnwithvel.tasktimer.util.TasksContract
 
 /**
  * Provider for the TaskTimer App. This is the only class that knows about [AppDatabase]
@@ -38,37 +40,90 @@ class AppProvider : ContentProvider() {
         Log.d(TAG, "buildUriMatcher: starts")
         val matcher = UriMatcher(UriMatcher.NO_MATCH)
 
+        //content://kiz.learnwithvel.tasktimer.provider/Tasks
+        matcher.addURI(CONTENT_AUTHORITY, TasksContract.TABLE_NAME, TASKS)
+
+        //content://kiz.learnwithvel.tasktimer.provider/Tasks/8
+        matcher.addURI(CONTENT_AUTHORITY, "${TasksContract.TABLE_NAME}/#", TASKS_ID)
+
+//        matcher.addURI(CONTENT_AUTHORITY, TimingsContract.TABLE_NAME, TIMINGS)
+//        matcher.addURI(CONTENT_AUTHORITY, "${TimingsContract.TABLE_NAME}/#", TIMINGS_ID)
+
+//        matcher.addURI(CONTENT_AUTHORITY, DurationsContract.TABLE_NAME, TASK_DURATIONS)
+//        matcher.addURI(CONTENT_AUTHORITY, "${DurationsContract.TABLE_NAME}/#", TASK_DURATIONS_ID)
 
         return matcher
     }
 
-    override fun insert(p0: Uri, p1: ContentValues?): Uri? {
+    override fun onCreate(): Boolean {
+        Log.d(TAG, "onCreate: starts")
+        return true
+    }
+
+    override fun getType(uri: Uri): String? {
         TODO("Not yet implemented")
     }
 
     override fun query(
-        p0: Uri,
-        p1: Array<out String>?,
-        p2: String?,
-        p3: Array<out String>?,
-        p4: String?
+        uri: Uri,
+        projections: Array<out String>?,
+        selection: String?,
+        selectionArgs: Array<out String>?,
+        sortOrder: String?
     ): Cursor? {
+        Log.d(TAG, "query: called with uri $uri")
+        val match = uriMatcher.match(uri)// location to be access
+        Log.d(TAG, "query: match is $match")
+
+        val queryBuilder = SQLiteQueryBuilder()
+
+        when (match) {
+            //"SELECT * FROM Tasks"
+            TASKS -> queryBuilder.tables = TasksContract.TABLE_NAME
+            //"SELECT * FROM Tasks WHERE id = 8"
+            TASKS_ID -> {
+                queryBuilder.tables = TasksContract.TABLE_NAME
+                val taskId = TasksContract.getId(uri)
+                queryBuilder.appendWhere("${TasksContract.TABLE_NAME} = $taskId")
+            }
+//            TIMINGS -> queryBuilder.tables = TimingsContract.TABLE_NAME
+//            TIMINGS_ID -> {
+//                queryBuilder.tables = TimingsContract.TABLE_NAME
+//                val timingId = TimingsContract.getId(uri)
+//                queryBuilder.appendWhere("${TimingsContract.TABLE_NAME} = $timingId")
+//            }
+//            TASK_DURATIONS -> queryBuilder.tables = DurationsContract.TABLE_NAME
+//            TASK_DURATIONS_ID -> {
+//                queryBuilder.tables = DurationsContract.TABLE_NAME
+//                val durationId = DurationsContract.getId(uri)
+//                queryBuilder.appendWhere("${DurationsContract.TABLE_NAME} = $durationId")
+//            }
+            else -> throw IllegalArgumentException("Unknown URI: $uri")
+        }
+
+        val db = context?.let { AppDatabase.getInstance(it).readableDatabase }
+        val cursor = queryBuilder.query(
+            db, projections, selection, selectionArgs, null, null, sortOrder
+        )
+        Log.d(TAG, "query: rows in returned cursor = ${cursor.count}")
+        return cursor
+
+    }
+
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
         TODO("Not yet implemented")
     }
 
-    override fun onCreate(): Boolean {
+    override fun update(
+        uri: Uri,
+        values: ContentValues?,
+        selection: String?,
+        selectionArgs: Array<out String>?
+    ): Int {
         TODO("Not yet implemented")
     }
 
-    override fun update(p0: Uri, p1: ContentValues?, p2: String?, p3: Array<out String>?): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun getType(p0: Uri): String? {
+    override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {
         TODO("Not yet implemented")
     }
 
