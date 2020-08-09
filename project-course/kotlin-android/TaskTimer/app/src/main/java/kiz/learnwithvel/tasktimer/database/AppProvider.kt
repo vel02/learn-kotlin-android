@@ -15,7 +15,7 @@ import kiz.learnwithvel.tasktimer.util.TasksContract
 
 private const val TAG = "AppProvider"
 
-private const val CONTENT_AUTHORITY =
+const val CONTENT_AUTHORITY =
     "kiz.learnwithvel.tasktimer.provider"// <-- A name of the provider
 
 val CONTENT_AUTHORITY_URI: Uri =
