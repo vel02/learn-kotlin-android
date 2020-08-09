@@ -5,8 +5,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
-import kiz.learnwithvel.tasktimer.database.AppDatabase
+import kiz.learnwithvel.tasktimer.util.TasksContract
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG = "MainActivity"
@@ -17,30 +16,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val appDatabase = AppDatabase.getInstance(this)
-        val db = appDatabase.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM Tasks", null)
+        val projections =
+            arrayOf(TasksContract.Columns.TASK_NAME, TasksContract.Columns.TASK_SORT_ORDER)
+        val sortOrder = TasksContract.Columns.TASK_SORT_ORDER
+
+        val cursor = contentResolver.query(
+//            TasksContract.CONTENT_URI,
+            TasksContract.buildUriFromId(1),
+            projections, null, null, sortOrder
+        )
         Log.d(TAG, "**********************")
         cursor.use {
-            while (it.moveToNext()) {
+            while (it!!.moveToNext()) {
+//                val id = it.getLong(0)
                 with(cursor) {
-                    val id = getLong(0)
-                    val name = getString(1)
-                    val description = getString(2)
-                    val sortOrder = getString(3)
+                    val name = this!!.getString(0)
+//                val description = it.getString(2)
+                    val sortOrder = getString(1)
                     val result =
-                        "ID: $id. Name: $name. Description: $description. SortOrder: $sortOrder"
+//                    "ID: $id. Name: $name. Description: $description. SortOrder: $sortOrder"
+                        "Name: $name. SortOrder: $sortOrder"
                     Log.d(TAG, "onCreate: reading data $result")
                 }
             }
         }
         Log.d(TAG, "**********************")
 
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
