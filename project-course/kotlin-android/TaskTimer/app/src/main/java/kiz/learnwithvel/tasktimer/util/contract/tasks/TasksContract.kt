@@ -1,4 +1,4 @@
-package kiz.learnwithvel.tasktimer.util
+package kiz.learnwithvel.tasktimer.util.contract.tasks
 
 import android.content.ContentUris
 import android.net.Uri
@@ -12,7 +12,10 @@ object TasksContract {
     /**
      * The URI to access the Tasks table.
      */
-    val CONTENT_URI = Uri.withAppendedPath(CONTENT_AUTHORITY_URI, TABLE_NAME)
+    private val CONTENT_URI: Uri = Uri.withAppendedPath(
+        CONTENT_AUTHORITY_URI,
+        TABLE_NAME
+    )
 
     const val CONTENT_TYPE = "vnd.android.cursor.dir/vnd.$CONTENT_AUTHORITY.$TABLE_NAME"
     const val CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.$CONTENT_AUTHORITY.$TABLE_NAME"

@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import kiz.learnwithvel.tasktimer.util.SingletonHolder
-import kiz.learnwithvel.tasktimer.util.TasksContract
+import kiz.learnwithvel.tasktimer.util.contract.tasks.TasksContract
 
 /**
  * Basic database class for the application.

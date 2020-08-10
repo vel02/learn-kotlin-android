@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import kiz.learnwithvel.tasktimer.util.TasksContract
+import kiz.learnwithvel.tasktimer.util.contract.tasks.TasksContract
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG = "MainActivity"
