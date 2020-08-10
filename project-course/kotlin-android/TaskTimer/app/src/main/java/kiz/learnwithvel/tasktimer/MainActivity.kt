@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val cursor = contentResolver.query(
 //            TasksContract.CONTENT_URI,
-            TasksContract.buildUriFromId(1),
+            TasksContract.buildUriFromId(2),
             projections, null, null, sortOrder
         )
         Log.d(TAG, "**********************")
