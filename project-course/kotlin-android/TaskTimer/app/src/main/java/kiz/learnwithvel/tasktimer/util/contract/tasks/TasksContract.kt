@@ -12,7 +12,7 @@ object TasksContract {
     /**
      * The URI to access the Tasks table.
      */
-    private val CONTENT_URI: Uri = Uri.withAppendedPath(
+    val CONTENT_URI: Uri = Uri.withAppendedPath(
         CONTENT_AUTHORITY_URI,
         TABLE_NAME
     )

@@ -1,5 +1,6 @@
 package kiz.learnwithvel.tasktimer
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -20,40 +21,58 @@ class MainActivity : AppCompatActivity() {
             arrayOf(TasksContract.Columns.TASK_NAME, TasksContract.Columns.TASK_SORT_ORDER)
         val sortOrder = TasksContract.Columns.TASK_SORT_ORDER
 
+//        testInsert()
+        testUpdate()
+
         val cursor = contentResolver.query(
-//            TasksContract.CONTENT_URI,
-            TasksContract.buildUriFromId(2),
-            projections, null, null, sortOrder
+            TasksContract.CONTENT_URI,
+//            TasksContract.buildUriFromId(2),
+            null, null, null, sortOrder
         )
         Log.d(TAG, "**********************")
         cursor.use {
             while (it!!.moveToNext()) {
-//                val id = it.getLong(0)
-                with(cursor) {
-                    val name = this!!.getString(0)
-//                val description = it.getString(2)
-                    val sortOrder = getString(1)
-                    val result =
-//                    "ID: $id. Name: $name. Description: $description. SortOrder: $sortOrder"
-                        "Name: $name. SortOrder: $sortOrder"
-                    Log.d(TAG, "onCreate: reading data $result")
-                }
+                val id = it.getLong(0)
+                val name = it.getString(1)
+                val description = it.getString(2)
+                val order = it.getString(3)
+                val result =
+                    "ID: $id. Name: $name. Description: $description. SortOrder: $order"
+                Log.d(TAG, "onCreate: reading data $result")
             }
         }
         Log.d(TAG, "**********************")
 
     }
 
+    private fun testUpdate() {
+        val values = ContentValues().apply {
+            put(TasksContract.Columns.TASK_NAME, "Content Provider")
+            put(TasksContract.Columns.TASK_DESCRIPTION, "Record content providers video")
+        }
+        val taskUri = TasksContract.buildUriFromId(4)
+        val row = contentResolver.update(taskUri, values, null, null)
+        Log.d(TAG, "Number of row updated is $row")
+
+    }
+
+    private fun testInsert() {
+        val values = ContentValues().apply {
+            put(TasksContract.Columns.TASK_NAME, "New Task 1")
+            put(TasksContract.Columns.TASK_DESCRIPTION, "Description 1")
+            put(TasksContract.Columns.TASK_SORT_ORDER, 2)
+        }
+        val uri = contentResolver.insert(TasksContract.CONTENT_URI, values)
+        Log.d(TAG, "New row id (in uri) is $uri")
+        Log.d(TAG, "id (in uri) is ${uri?.let { TasksContract.getId(it) }}")
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)

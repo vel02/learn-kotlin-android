@@ -162,9 +162,9 @@ class AppProvider : ContentProvider() {
         selection: String?,
         selectionArgs: Array<out String>?
     ): Int {
-        Log.d(TAG, "delete: called with uri $uri")
+        Log.d(TAG, "update: called with uri $uri")
         val match = uriMatcher.match(uri)// location to be access
-        Log.d(TAG, "delete: match is $match")
+        Log.d(TAG, "update: match is $match")
 
         val count: Int
         var selectionCriteria: String
@@ -263,7 +263,7 @@ class AppProvider : ContentProvider() {
 
             else -> throw IllegalArgumentException("Unknown URI: $uri")
         }
-        Log.d(TAG, "Exiting update, returning $count")
+        Log.d(TAG, "Exiting delete, returning $count")
         return count
 
     }
