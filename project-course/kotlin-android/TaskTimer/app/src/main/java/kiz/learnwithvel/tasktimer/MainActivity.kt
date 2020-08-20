@@ -22,7 +22,10 @@ class MainActivity : AppCompatActivity() {
         val sortOrder = TasksContract.Columns.TASK_SORT_ORDER
 
 //        testInsert()
-        testUpdate()
+//        testUpdate()
+//        testUpdateTwo()
+//        testDelete()
+        testDeleteTwo()
 
         val cursor = contentResolver.query(
             TasksContract.CONTENT_URI,
@@ -42,6 +45,47 @@ class MainActivity : AppCompatActivity() {
             }
         }
         Log.d(TAG, "**********************")
+
+    }
+
+    private fun testDeleteTwo() {
+
+        val selection = TasksContract.Columns.TASK_DESCRIPTION + " = ?"
+        val selectionArgs = arrayOf("For deletion")
+
+        val row = contentResolver.delete(
+            TasksContract.CONTENT_URI,
+            selection,
+            selectionArgs
+        )
+        Log.d(TAG, "Number of rows delete is $row")
+
+    }
+
+    private fun testDelete() {
+
+        val taskUri = TasksContract.buildUriFromId(3)
+        val row = contentResolver.delete(taskUri, null, null)
+        Log.d(TAG, "Number of row deleted is $row")
+
+    }
+
+    private fun testUpdateTwo() {
+        val values = ContentValues().apply {
+            put(TasksContract.Columns.TASK_SORT_ORDER, 999)
+            put(TasksContract.Columns.TASK_DESCRIPTION, "For deletion")
+        }
+
+        val selection = TasksContract.Columns.TASK_SORT_ORDER + " = ?"
+        val selectionArgs = arrayOf("99")
+
+        val row = contentResolver.update(
+            TasksContract.CONTENT_URI,
+            values,
+            selection,
+            selectionArgs
+        )
+        Log.d(TAG, "Number of row updated is $row")
 
     }
 
