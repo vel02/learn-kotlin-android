@@ -5,4 +5,7 @@
     <string name="action_durations_report">Durations Report</string>
     <string name="action_show_about">About TaskTimer</string>
     <string name="action_generate">Generate data</string>
+    <string name="text_no_task_selected">No Task Selected</string>
+    <string name="edit_button_description">Button to edit a task detail</string>
+    <string name="delete_button_desrciption">Button to delete the task</string>
 </resources>
